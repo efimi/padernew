@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('buttonclick');
 });
+Route::post('/', 'LocationsController@getLocation')->name('location.random');
+Route::get('/getLocation', 'LocationsController@getLocation');

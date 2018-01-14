@@ -18,6 +18,8 @@ class CreateMatchesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('location_id')->unsigned();
             $table->integer('amount')->default(1);
+            $table->boolean('qr_test_made')->default(false);
+            $table->boolean('qr_test_approved')->default(false);
             $table->timestamps();
         });
     }

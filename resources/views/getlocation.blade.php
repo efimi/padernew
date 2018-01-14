@@ -1,5 +1,7 @@
 @extends('master')
 
 @section('content')
-	<h1> {{ $location->name }}</h1>
+	@include('locationInfo', $location)
+	
+	<a href="{{ route('location.confirm') }}" class="c-button c-button--rounded c-button--ghost-info">Confirm!</a>
 @endsection

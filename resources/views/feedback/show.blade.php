@@ -2,13 +2,13 @@
 
 @section('content')
 	
-	@include('feedbackForm')
+	@include('feedback.form')
 
 	<hr>
 
 	@foreach($feedbacks as $feedback)
 		
-		@include('feedbackInstance')
+		@include('feedback.instance')
 		
 	@endforeach
 	

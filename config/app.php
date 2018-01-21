@@ -167,7 +167,9 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Codecourse\Notify\NotifyServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        // \SocialiteProviders\Manager\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -176,7 +178,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Codecourse\Notify\NotifyServiceProvider::class,
+        App\Providers\SocialServiceProvider::class,
+       
 
     ],
 
@@ -226,7 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,  
     ],
 
 ];

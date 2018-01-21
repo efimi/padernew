@@ -21,7 +21,7 @@ Route::get('/locations', 'LocationsController@showLocationsToday');
 Route::get('/locations/{id}', 'LocationsController@getLocationInfo');
 
 Route::get('/wait', function(){
-	$user = App\User::find(1);
+	$user = \App\Auth::user();
 	return view('waitATime', compact('user'));
 });
 
@@ -38,6 +38,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('login/{service}', 'Auth\SocialLoginController@redirect');
+Route::get('login/{service}/callback', 'Auth\SocialLoginController@callback');
+
 Route::get('/alert', function(){
 	return view('alert');
 });
@@ -45,3 +48,4 @@ Route::get('/notify', function(){
 	notify()->flash('Alles ok hier!', 'success');
 	return redirect()->to('alert');
 });
+

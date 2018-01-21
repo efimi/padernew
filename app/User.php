@@ -45,6 +45,18 @@ class User extends Authenticatable
         return $this->hasMany(Feedback::class);
     }
 
+    public function social()
+    {
+        return $this->hasMany(UserSocial::class);
+    }
+
+    /**
+     * For Social Login
+     */
+    public function hasSocialLinked($service)
+     {
+         return (bool) $this->social->where('service', $service)->count();
+     } 
     /**
      * Tells wheter Entry in MatchesTable is notEmpty
      * @return boolean

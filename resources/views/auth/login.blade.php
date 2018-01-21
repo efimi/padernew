@@ -5,6 +5,18 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+                <div class="panel-heading">Social</div>
+
+                <div class="panel-body">
+                    <div class="btn-group btn-group-justified">
+                        <a href="{{url('/login/github')}}" class="btn btn-default">GitHub</a>
+                        {{-- <a href="{{url('/login/twitter')}}" class="btn btn-default">Twitter</a> --}}
+                        <a href="{{url('/login/facebook')}}" class="btn btn-default">Facebook</a>
+                        <a href="{{url('/login/instagram')}}" class="btn btn-default">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">

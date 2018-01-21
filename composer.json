@@ -10,9 +10,11 @@
         "codecourse/notify": "^1.1",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
-        "simplesoftwareio/simple-qrcode": "~2"
+        "simplesoftwareio/simple-qrcode": "~2",
+        "socialiteproviders/instagram": "^3.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

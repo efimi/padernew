@@ -12,5 +12,4 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-mix.js('node_modules/sweetalert/dist/sweetalert.min.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');

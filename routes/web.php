@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/start', function(){
+	return view('startVue');
+});
 
 Route::get('/', 'LocationsController@startApp');
 Route::post('/', 'LocationsController@getLocation')->name('location.random');

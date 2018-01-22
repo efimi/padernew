@@ -8,8 +8,13 @@
 
 </head>
 <body>
-    <div class="o-container o-container--small --center">
-		@yield('content')       
-    </div>
+	<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+	<div id="app">
+		<div class="o-container o-container--small --center">
+			@yield('content')       
+	    </div>	
+	</div>
+    
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

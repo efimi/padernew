@@ -19,6 +19,9 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "sweetalert": "^2.1.0"
+        "@xkeshi/vue-countdown": "^0.5.0",
+        "moment": "^2.20.1",
+        "sweetalert": "^2.1.0",
+        "vuejs-countdown": "^0.1.0"
     }
 }

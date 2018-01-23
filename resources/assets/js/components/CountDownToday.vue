@@ -1,5 +1,5 @@
 <template>
-	<div class="countdown">
+	<div class="countdown" v-if="moment() <== deadline">
 		<h2>Noch </h2>
 		<Countdown :deadline="deadline"></Countdown>
 		<h2> bis es los geht!</h2>
@@ -15,7 +15,7 @@
 			return {
 				deadline: moment().startOf('day').add(20,'hours'),
 			}
-		}
+		},
 	}
 </script>
 

@@ -8,15 +8,16 @@
 
 </head>
 <body>
-	<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
-	<div id="app">
-		<h1> Willkommen bei PaderMeet</h1>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/de.js"></script>
+    <div id="app">
+        <h1> Willkommen bei PaderMeet</h1>
         <h2> Drücke auf den Button und finde heraus wo es für dich hingeht!</h2>
         <invite-text></invite-text>
-        <count-down-today></count-down-today>
-	</div>
+        <count-down-today time="16" v-show=></count-down-today>
+        <location-box></location-box>
+    </div>
     
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/de.js"></script> -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

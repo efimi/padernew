@@ -13,6 +13,13 @@
 Route::get('/start', function(){
 	return view('startVue');
 });
+Route::get('/api/getlocation', function(){
+			$user = \App\User::find(1);
+            $amount =1;
+            $location = \App\Location::getLocationWithSpaceFor($amount);
+        	\App\History::makeNewEntry($user, $location, $amount);
+        	return $location;
+});
 
 Route::get('/', 'LocationsController@startApp');
 Route::post('/', 'LocationsController@getLocation')->name('location.random');

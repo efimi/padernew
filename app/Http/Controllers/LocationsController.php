@@ -13,7 +13,7 @@ class LocationsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
     //
     public function startApp()
@@ -38,16 +38,28 @@ class LocationsController extends Controller
         }
     }
     public function getLocation(Request $request)
-    {	
-    	// match user to location
-    	$user = User::find(1);
-    	// $amount = $this->getAmount($request);
+    {   
+        // match user to location
+        $user = User::find(1);
+        // $amount = $this->getAmount($request);
         $amount = $request->comeTogether == '0' ? 2 : 1;
         $location = Location::getLocationWithSpaceFor($amount);
-    	// save in DB
-    	History::makeNewEntry($user, $location, $amount);
-    	return view('getLocation', compact('location'));
+        // save in DB
+        History::makeNewEntry($user, $location, $amount);
+        return view('getLocation', compact('location'));
     }
+    public function getLocationApi(Request $request)
+        {	
+        	// match user to location
+        	$user = User::find(1);
+        	// $amount = $this->getAmount($request);
+            // $amount = $request->comeTogether == '0' ? 2 : 1;
+            $amount =1;
+            $location = Location::getLocationWithSpaceFor($amount);
+        	// save in DB
+        	History::makeNewEntry($user, $location, $amount);
+        	return $location;
+        }
 
     public function confirmThatIcome()
     {

@@ -1,5 +1,5 @@
 <template>
-	<div class="countdown" v-if="moment() <== deadline">
+	<div class="countdown">
 		<h2>Noch </h2>
 		<Countdown :deadline="deadline"></Countdown>
 		<h2> bis es los geht!</h2>
@@ -10,10 +10,11 @@
 	import Countdown from 'vuejs-countdown'
 	import moment from 'moment'
 	export default {
-		components: { Countdown},
+		components: { Countdown },
+		props:['time'],
 		data(){
 			return {
-				deadline: moment().startOf('day').add(20,'hours'),
+				deadline: moment().startOf('day').add(this.time,'hours'),
 			}
 		},
 	}

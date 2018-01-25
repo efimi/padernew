@@ -21,7 +21,7 @@ class CreateLocationsTable extends Migration
             $table->string('email')->nullable();
             $table->string('token')->nullable();
             $table->string('lat')->nullable();
-            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->string('category')->nullable();
             $table->string('website')->nullable();
             $table->string('maps_url')->nullable();
@@ -36,6 +36,8 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('locations');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

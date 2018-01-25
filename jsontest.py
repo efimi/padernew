@@ -13,13 +13,13 @@ google_places = GooglePlaces(api_key)
 query_result = google_places.radar_search(lat_lng={'lat': 51.71905, 'lng': 8.75439}, keyword='bar', radius=1000)
 # id Counter i
 i = 1
-for place in query_result.places[92:94]:
+for place in query_result.places[80:94]:
 	# make a random token - for verification
 	place.get_details()
 	print (place.name)
 	outputJson = place.details
 	# pp.pprint(outputJson)
-	print ('opening_hours' in str(outputJson))
+	print ('opening_hours' and 'close' and 'open' in str(outputJson))
 	# lat = str(outputJson['geometry']['location']['lat'])
 	# lng = str(outputJson['geometry']['location']['lng'])
 	# # print(('open' in str(outputJson['opening_hours']['periods']))

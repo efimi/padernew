@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatchesTable extends Migration
+class CreateOpeningHoursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateMatchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('matches', function (Blueprint $table) {
+        Schema::create('opening_hours', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
             $table->integer('location_id')->unsigned();
-            $table->integer('amount')->default(1);
-            $table->boolean('qr_test_made')->default(false);
-            $table->boolean('qr_test_approved')->default(false);
+            $table->integer('day_id')->unsigned();
+            $table->string('opened');
+            $table->string('closed');
             $table->timestamps();
+
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
         });
     }
 
@@ -31,8 +32,6 @@ class CreateMatchesTable extends Migration
      */
     public function down()
     {
-         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::dropIfExists('matches');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        Schema::dropIfExists('opening_hours');
     }
 }

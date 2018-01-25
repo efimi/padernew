@@ -13,12 +13,12 @@ class LocationsController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
     //
     public function startApp()
     {
-        $user = User::find(1);
+        $user = Auth::user();
         if(empty($user)){
             User::makeTestUser();
             $user = User::find(1);

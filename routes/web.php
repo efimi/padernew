@@ -13,12 +13,27 @@
 Route::get('/start', function(){
 	return view('startVue');
 });
-Route::get('/api/getlocation', function(){
+Route::get('/api/getlocation/{amount}', function($amount) {
 			$user = \App\User::find(1);
-            $amount =1;
             $location = \App\Location::getLocationWithSpaceFor($amount);
+            $location['photos'] =  \App\Photo::getPhotosForLocation($location->id);
+            $location['used'] = $location->usedPlaces();
         	\App\History::makeNewEntry($user, $location, $amount);
         	return $location;
+        	// looks for location, returns photos, address, and currently used
+});
+Route::get('/api/getphotos/{id}', function($id){
+			return \App\Photo::getPhotosForLocation($id);
+});
+Route::get('/api/confirmThatICome/{id}', function($id){
+		$user = \App\User::find(1);
+        $lastEntry = \App\History::lastUserEntry($user);
+        $amount = $lastEntry->amount;
+        $location = $lastEntry->location;
+        \App\Match::makeMatch($user, $location, $amount);
+    	$lastEntry->confirmed = 1;
+        $lastEntry->save();
+        return "Super das du dabei bist!";
 });
 
 Route::get('/', 'LocationsController@startApp');

@@ -7,4 +7,4 @@ import LocationBox from './components/LocationBox.vue';
 new Vue({
 	el:'#app',
 	components: {InviteText, CountDownToday, LocationBox},
-});
+});	

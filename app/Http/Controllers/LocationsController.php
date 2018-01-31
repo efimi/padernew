@@ -8,6 +8,7 @@ use App\Location;
 use App\Match;
 use App\User;
 use App\History;
+use Auth;
 
 class LocationsController extends Controller
 {
@@ -63,15 +64,15 @@ class LocationsController extends Controller
 
     public function confirmThatIcome()
     {
-    	$user = User::find(1);
+        $user = User::find(1);
         $lastEntry = History::lastUserEntry($user);
         $amount = $lastEntry->amount;
         $location = $lastEntry->location;
         Match::makeMatch($user, $location, $amount);
-    	$lastEntry->confirmed = 1;
+        $lastEntry->confirmed = 1;
         $lastEntry->save();
         $location = $user->matchedLocation();
-    	return redirect()->to('/');
+        return redirect()->to('/');
     }
 
     public function showLocationsToday()

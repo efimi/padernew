@@ -13,5 +13,5 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/vue.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
-   .sass('resources/assets/sass/resultmodal.scss', 'public/css')
+   .sass('resources/assets/sass/buttonclick.scss', 'public/css')
    .sass('resources/assets/sass/style.scss', 'public/css');

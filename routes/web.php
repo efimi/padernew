@@ -26,7 +26,7 @@ Route::get('/api/getphotos/{id}', function($id){
 			return \App\Photo::getPhotosForLocation($id);
 });
 Route::get('/api/confirmThatICome/{id}', function($id){
-		$user = \App\User::find(1);
+		$user = \Auth::user();
         $lastEntry = \App\History::lastUserEntry($user);
         $amount = $lastEntry->amount;
         $location = $lastEntry->location;
@@ -34,6 +34,10 @@ Route::get('/api/confirmThatICome/{id}', function($id){
     	$lastEntry->confirmed = 1;
         $lastEntry->save();
         return "Super das du dabei bist!";
+});
+Route::get('/api/getuser', function(){
+    $user = \App\User::auth();
+    return $user;
 });
 
 Route::get('/', 'LocationsController@startApp');
@@ -63,7 +67,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('login/{service}', 'Auth\SocialLoginController@redirect');
+Route::get('login/{service}', 'Auth\SocialLoginController@redirect')->name('facebook_login');
 Route::get('login/{service}/callback', 'Auth\SocialLoginController@callback');
 
 Route::get('/alert', function(){

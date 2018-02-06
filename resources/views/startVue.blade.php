@@ -8,30 +8,50 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/de.js"></script>
-    {{-- <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script> --}}
-
-
-    {{-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
     
     <div id="app" >
         <div class="navigation">
             <button href="#" class="login-button" >Login</button>
         </div>
-       {{--  <login-modal v-show="isModalVisible" @close="closeModal"></login-modal> --}}
 
         <div class="logo">
             <img src="img/logo.png" alt="">
         </div>
-    <input type="checkbox" id="checkbox" v-model="checked">
-<label for="checkbox" v-text="(checked? 'zu zweit' : 'alleine')"> <br></label>
-    <div class="start-button nonselect" @click="getlocation" :text="buttonText">
+    {{-- <div class="start-button nonselect" @click="getlocation" :text="buttonText">
             <span>Finde deine Location!</span>
-        </div>
+        </div> --}}
+        {{-- <div v-if="!user" v-text="Super das du das bist! Logge dich zunächst ein um auf den Button zu klicken!"></div> --}}
+        <modal :checked="checked"> <h1 slot="title"></h1></modal>
+        <transition name="plop">
+         <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
 
-       
-            <div class="result__content">
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endguest
+                    </ul>
+        </transition>
+            {{-- <div class="result__content">
                 <div class="location">
                     <transition name="fade">
                         <h1 v-if="data.name" v-text="data.name"></h1>
@@ -57,8 +77,12 @@
                         </div>
                     </transition>   
                 </div>
-            </div>
-    </div>    
+            </div> --}}
+
+    </div>
+    
+    
+
     <script src="/js/vue.js"></script>
 </body>
 </html>

@@ -23,6 +23,7 @@
         "moment": "^2.20.1",
         "sweetalert": "^2.1.0",
         "vue-carousel": "^0.6.5",
+        "vue-js-toggle-button": "^1.2.2",
         "vuejs-countdown": "^0.1.0"
     }
 }

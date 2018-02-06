@@ -1,14 +1,18 @@
 .start-button {
-  padding: 1em 2em;
+  padding: 2em 3em;
   background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
   color: white;
-  border-radius: 100px;
+  border-radius: 150px;
   -webkit-box-shadow: rgba(116, 102, 98, 0.27) 0px 2px 4px 0px;
           box-shadow: rgba(116, 102, 98, 0.27) 0px 2px 4px 0px;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: .02em;
   cursor: pointer;
+  text-decoration: none;
+  margin-top: 2em;
+  text-align: center;
+  font-size: 3.5em;
 }
 
 .start-button:hover {
@@ -51,30 +55,161 @@
   transition: all 0.25s ease-in-out;
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.plop-enter-active,
+.plop-leave-active {
   -webkit-transition: opacity .5s ease-out 1s;
   transition: opacity .5s ease-out 1s;
   opacity: 1;
 }
 
-.fade-enter {
+.plop-enter {
   opacity: 0;
 }
 
-.fade-leave-to {
+.plop-leave-to {
   -webkit-transition: opacity .5s ease-out 1s;
   transition: opacity .5s ease-out 1s;
   opacity: 0;
 }
 
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
-  color: #333;
-  font-size: 2em;
-  padding: 0;
-  margin: 0;
+/* Dialog */
+
+.Modal__overlay {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.Modal__content {
+  position: fixed;
+  z-index: 13;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  text-align: center;
+  border-radius: 20px;
+  width: 70%;
+  max-width: 360px;
+}
+
+.Modal__body {
+  padding: 20px;
+  font-size: 15px;
+  color: #4a4a4a;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-weight: 500;
+}
+
+.crop img {
+  max-height: 300px;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.Modal__outside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 200px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Modal__footer {
+  position: relative;
+  line-height: 42px;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  white-space: nowrap;
+  width: 100%;
+  height: 40px;
+}
+
+.Modal__footer:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid #D5D5D6;
+  color: #D5D5D6;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+
+.btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-left: 1px solid #D5D5D6 !important;
+  font-size: 1rem;
+  line-height: 30px;
+  display: inline-block;
+  height: 32px;
+  padding: 0 15px;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  color: #0179f1;
+  border-radius: 3px;
+  outline: 0;
+  vertical-align: middle;
+  -webkit-transition: background-color .1s ease-out, border-color .1s ease-out, color .1s ease-out,-webkit-box-shadow .1s ease-out;
+  transition: background-color .1s ease-out, border-color .1s ease-out, color .1s ease-out,-webkit-box-shadow .1s ease-out;
+  transition: box-shadow .1s ease-out,background-color .1s ease-out, border-color .1s ease-out, color .1s ease-out;
+  transition: box-shadow .1s ease-out,background-color .1s ease-out, border-color .1s ease-out, color .1s ease-out,-webkit-box-shadow .1s ease-out;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-ok {
+  font-weight: 500;
+}
+
+.btn:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn:first-child {
+  border-bottom-left-radius: 2px;
+  border-left: none !important;
+}
+
+.link {
+  color: #08c;
+  font-size: 16px;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 2px dotted;
+  margin-right: 5px;
 }
 
 .logo {
@@ -82,6 +217,16 @@ body {
   display: block;
   margin-top: 1em;
   z-index: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
 }
 
 #app {
@@ -120,5 +265,9 @@ body {
   argin-top: 3em;
   width: 75%;
   z-index: 1;
+}
+
+.vue-js-switch#changed-font {
+  font-size: 20px;
 }
 

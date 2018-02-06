@@ -1,24 +1,31 @@
 import Vue from 'vue';
 import axios from 'axios';
+import VueCarousel from 'vue-carousel';
+import ToggleButton from 'vue-js-toggle-button'
+import ResultModal from './components/ResultModal.vue';
 
-// Vue.use(VueCarousel);
-
+Vue.use(ToggleButton, VueCarousel);
 new Vue({
     el: '#app',
+    components:{
+    	'modal' : ResultModal,
+    },
     data:{
-    	data: [],
-    	buttonText: 'Finde deine Location!',
-    	checked: true,
+    	user: [],
+    	active: false,
+    	checked: false,
     	confirmed: false,
     	confirmationText: ''
     },
+    mounted(){
+        this.getUser()
+    },
     methods:{
-    	getlocation(){
-    		this.data = []
-    		axios.get('/api/getlocation/' + (this.checked? 2 : 1)).then(response => this.data = response.data)
+    	open(){
+    		this.active = true
     	},
-    	confirmLocation(){
-    		axios.get('/api/confirmThatICome/' + (this.data.id)).then(resonse =>this.confirmationText)
+    	close(){
+    		this.active = false
     	}
-    }
+    },
 });

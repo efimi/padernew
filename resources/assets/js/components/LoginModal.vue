@@ -1,63 +1,124 @@
 <template>
-	<transition name="modal">
-            <div class="modal__mask"  @click="close">
-                <div class="modal__container" @click.stop>
-                    <div class="login-modal">
-                        <h2>Lege Los!</h2>
-                        <div class="logo">
-                            <img src="img/logo-small.png"  style="transform: scale(0.5, 0.5);;" alt="">
+	<transition name="plop">
+           <div>
+        <div class="Modal" v-show="active">
+            <div class="Modal__overlay" @click="close()"></div>
+            <div class="Modal__content">
+                <div class="Modal__title"><h1>PaderMeet</h1></div>
+                <div class="Modal__body">
+                	<div class="logo-small"></div>
+                    <div>Logge dich ein, mit facebook oder email!</div>
+                    <div class="button-group" >
+                    	<div class="start" v-if="!showEmail">
+                    		<a class="facebook-button" href="" v-text="facebook"></a>
+                    		<a class="email-button" href="" v-text="mit Email einloggen" @click="showEmail = true"></a>
+                    	</div>
+                    	                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
-                        <h3>Logge dich ein:</h3>
-                        
-                       <div class="button-group">
-                            <button class="facebook-login">Mit Facebook</button>
-                            <button class="email-toggle">mit Email</button>
-                       </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Login
+                                </button>
+
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Forgot Your Password?
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+
                     </div>
+
                 </div>
             </div>
+        </div>
+        <div class="Modal__outside">
+            <a class="login-button" href="#" @click="open()">Login</a>
+        </div>
+    </div>
         </transition>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-	name:'LoginModal',
-	methods(){
-		close(){
-			this.$emit('close');
-		},
-	},
+    data: function() {
+        return {
+            active: false,
+            checked: false,
+            data:[],
+            loadimages: false,
+            attribute: '',
+    		showEmail: false,
+        }
+    },
+    components:{
+        Carousel,
+        Slide
+    },
+    props: ['btnText'],
+    methods: {
+        open: function() {
+            this.getlocation()
+        },
+        close: function() {
+            this.active = false
+        },
+        onCancel: function() {
+            this.close();
+        },
+        onConfirm: function() {
+            this.close();
+        },
+        mounted(){
+
+        },
+       
+    }
 }
-	
 </script>
 
 <style>
-.login-modal{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	max-width: inherit;
-}
-.button-group{
-	display: flex;
-	flex-direction: column;  
-}
 
-.facebook-login{
-	width: 300px;
-	margin-top: 1em;
-	border-radius: 100px;
-	background-color: skyblue;
-	padding: 1em 2em;
-	font-size: 16px;	
-}
-.email-toggle{
-	width: 300px;
-	margin-top: 1em;
-	border-radius: 100px;
-	background-color: skyblue;
-	padding: 1em 2em;
-	font-size: 16px;
-}
-	
 </style>

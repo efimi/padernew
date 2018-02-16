@@ -1,0 +1,11 @@
+.plop-enter-active, .plop-leave-active {
+  transition: opacity .5s ease-out 1s;
+  opacity: 1;
+}
+.plop-enter /* .plop-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.plop-leave-to{
+  transition: opacity .5s ease-out 1s;
+  opacity: 0;
+}

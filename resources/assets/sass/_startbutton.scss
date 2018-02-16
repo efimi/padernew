@@ -1,0 +1,34 @@
+.padertext {
+    font-family: 'paderchunky';
+    color: #a6c0fe;
+}
+.start-button {
+    padding: 2rem 3rem;
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: white;
+    border-radius: 100px;
+    box-shadow: rgba(116, 102, 98, 0.27) 0px 2px 4px 0px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .02rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    animation-duration: 2s;
+    animation-delay: 5s;
+}
+.start-button:hover {
+    // background: #e0c3fc;
+    /*transition: background 1s ease-in;*/
+    background-position: right center; /* change the direction of the change here */
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}

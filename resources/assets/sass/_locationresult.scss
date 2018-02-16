@@ -1,0 +1,17 @@
+.result__content{
+    display: block;
+    text-align: center;
+    max-width: 500px;
+    color: skyblue;
+    margin-bottom: 3em;
+}
+.location__info a{
+    text-decoration: none;
+    color: inherit;
+}
+.location__info a:hover{
+    text-decoration: none;
+    color: darkblue;
+    font-size: 2em;
+    transition: all 0.25s ease-in-out;
+}

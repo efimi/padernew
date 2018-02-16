@@ -10,6 +10,35 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/start', function(){
+	return view('startVue');
+});
+Route::get('/api/getlocation/{amount}', function($amount) {
+			$user = \App\User::find(1);
+            $location = \App\Location::getLocationWithSpaceFor($amount);
+            $location['photos'] =  \App\Photo::getPhotosForLocation($location->id);
+            $location['used'] = $location->usedPlaces();
+        	\App\History::makeNewEntry($user, $location, $amount);
+        	return $location;
+        	// looks for location, returns photos, address, and currently used
+});
+Route::get('/api/getphotos/{id}', function($id){
+			return \App\Photo::getPhotosForLocation($id);
+});
+Route::get('/api/confirmThatICome/{id}', function($id){
+		$user = \Auth::user();
+        $lastEntry = \App\History::lastUserEntry($user);
+        $amount = $lastEntry->amount;
+        $location = $lastEntry->location;
+        \App\Match::makeMatch($user, $location, $amount);
+    	$lastEntry->confirmed = 1;
+        $lastEntry->save();
+        return "Super das du dabei bist!";
+});
+Route::get('/api/getuser', function(){
+    $user = \App\User::auth();
+    return $user;
+});
 
 Route::get('/', 'LocationsController@startApp');
 Route::post('/', 'LocationsController@getLocation')->name('location.random');
@@ -38,7 +67,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('login/{service}', 'Auth\SocialLoginController@redirect');
+Route::get('login/{service}', 'Auth\SocialLoginController@redirect')->name('facebook_login');
 Route::get('login/{service}/callback', 'Auth\SocialLoginController@callback');
 
 Route::get('/alert', function(){

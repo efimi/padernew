@@ -16,8 +16,15 @@ class CreateLocationsTable extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->decimal('lat', 10, 7);
-            $table->decimal('lng', 10, 7);
+            $table->string('address');
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('token')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('category')->nullable();
+            $table->string('website')->nullable();
+            $table->string('maps_url')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +36,8 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('locations');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

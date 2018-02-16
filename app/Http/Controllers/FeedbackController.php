@@ -27,11 +27,11 @@ class FeedbackController extends Controller
     {
     	$feedbacks = Feedback::latest()->get();
 
-    	return view('feedbackShow', compact('feedbacks'));
+    	return view('feedback.show', compact('feedbacks'));
     }
     public function edit(Feedback $feedback)
     {
-        return view('feedbackEdit', compact('feedback'));
+        return view('feedback.edit', compact('feedback'));
     }
     public function update(Feedback $feedback)
     {   

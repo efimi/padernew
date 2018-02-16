@@ -18,7 +18,6 @@ class Match extends Model
     {
         return $this->belongsTo(Location::class, 'location_id');
     }
-
     public static function matchedTodayFor($user)
     {
     	return Match::where('user_id', $user->id)->whereDate('created_at', today())->first();

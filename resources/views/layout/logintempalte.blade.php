@@ -1,6 +1,6 @@
 <a href="{{url('/login/facebook')}}" class="pure-button pure-button-primary">Facebook</a>
                
-   
+<div class="form-box">
 <form class="pure-form pure-form-aligned" method="POST" action="{{ route('login') }}">
     {{ csrf_field() }}
     <fieldset>
@@ -43,5 +43,5 @@
             </a>
         </div>
     </fieldset>
-
 </form>
+</div>

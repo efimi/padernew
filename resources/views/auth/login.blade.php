@@ -88,12 +88,10 @@
 				    <div class="modal-body">
 					     <h1>Logge dich ein und lege los!</h1>
 					     <h1>🎉</h1>
-						 
 					 	@include('layout.components.loginTemplate')	
-
 				    </div>
 				    <div class="modal-footer">
-				    	<small>Ich möchte mich per <a href="/register">Email registrieren</a>.</small>
+						<small>Ich möchte mich per <a href="/register">Email registrieren</a>.</small>
 				    </div>
 				  </div>
 				</div>

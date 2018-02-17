@@ -40,7 +40,7 @@ Route::get('/api/getuser', function(){
     return $user;
 });
 
-Route::get('/', 'LocationsController@startApp');
+Route::get('/', 'LocationsController@startApp')->name('home');
 Route::post('/', 'LocationsController@getLocation')->name('location.random');
 Route::get('/result', 'LocationsController@getLocation');
 Route::get('/confirmThatICome', 'LocationsController@confirmThatICome')->name('location.confirm');
@@ -77,7 +77,7 @@ Route::get('/qrcode/test/{user}', 'QRCodeController@test');
 // Route::get('/confirmThatICome', '@')->name('qrcode');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 
 Route::get('login/{service}', 'Auth\SocialLoginController@redirect')->name('facebook_login');
 Route::get('login/{service}/callback', 'Auth\SocialLoginController@callback');

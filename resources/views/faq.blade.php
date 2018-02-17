@@ -13,7 +13,7 @@
 		</section>
 		<section class="card shadow" id="was-mitbringen" style="max-width: 600px">
 			<h2>Was muss man für PaderMeet mitbringen?</h2>
-			<h3>Neben Spass und Abenteuerlust, kann man auch deinen besten Freund oder deine beste Freundin mitnehmen! die Treffpunkte sind in der Regel Restaurants und Bars in Paderborn, wenn ihr euch dort einen drink bestellen möchtet, solltet ihr auch etwas Geld mitbringen.</h3>
+			<h3>Neben Spass und Abenteuerlust, kann man auch seinen besten Freund oder seine beste Freundin mitnehmen! die Treffpunkte sind in der Regel Restaurants und Bars in Paderborn, wenn ihr euch dort einen drink bestellen möchtet, solltet ihr auch etwas Geld mitbringen.</h3>
 			<small>Kleiner Tipp: Für die Schwaben unter euch - in machen Bars kann man sich auch Kranwasser bestellen - das ist häufig umsonsts!</small>
 			
 		</section>

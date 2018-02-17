@@ -60,7 +60,19 @@ class User extends Authenticatable
         $social = $this->social->where('service', 'facebook')->first();
         return $social->social_id;
     }
-
+    /**
+     * liefert den Pfad des Avatars.
+     * @return [type] [description]
+     */
+    public function avatar()
+    {
+        if($this->facebook_id()){
+            return "http://graph.facebook.com/" . $this->facebook_id() ."/picture?type=square";
+        }
+        else {
+            return "img/avatar.png";
+        }
+    }
     /**
      * For Social Login
      */

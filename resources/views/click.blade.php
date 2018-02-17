@@ -22,7 +22,7 @@
 		<div class="space-sm"></div>
 		<div class="split-row">
 			<div class="left">
-				<a href="#"><img class="avatar shadow" src="http://graph.facebook.com/{{auth()->user()->facebook_id()}}/picture?type=square" alt=""></a>
+				<a href="#"><img class="avatar shadow" src="{{auth()->user()->avatar()}}" alt=""></a>
 				<a href="#"><span>{{ auth()->user()->name}}</span></a>
 			</div>
 			<div class="right">

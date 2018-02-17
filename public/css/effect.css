@@ -1,0 +1,227 @@
+body{
+	background: #fff;
+}
+.preload-header {
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	min-height: 480px;
+	width: 100%;
+	height: 100%;
+	background: #00A6FF;
+}
+
+.preload-header h1 {
+	margin: 0;
+}
+
+.preload-logo,
+.preload-loader {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	opacity: 0;
+	cursor: default;
+	pointer-events: none;
+}
+
+.preload-logo {
+	top: 0;
+	height: 100%;
+	-webkit-transform: translate3d(0,25%,0);
+	transform: translate3d(0,25%,0);
+}
+
+.preload-loader {
+	bottom: 20%;
+}
+
+.preload-header .preload-inner {
+	display: block;
+	margin: 0 auto;
+}
+
+.preload-header .preload-logo svg {
+	min-width: 320px;
+	max-width: 480px;
+	width: 25%;
+}
+
+.preload-header .preload-logo svg path {
+	fill: #fff;
+}
+
+.preload-header .preload-loader svg path {
+	fill: none;
+	stroke-width: 6;
+}
+
+.preload-header .preload-loader svg path.preload-loader-circlebg {
+	stroke: #ddd;
+}
+
+.preload-header .preload-loader svg path.preload-loader-circle {
+	-webkit-transition: stroke-dashoffset 0.2s;
+	transition: stroke-dashoffset 0.2s;
+	stroke: skyblue;
+}
+
+/* Content */
+.preload-main {
+	overflow: hidden;
+	margin: 0 auto;
+	/*padding: 160px 0 10em 0;*/
+	/*max-width: 1100px;*/
+	/*width: 90%;*/
+}
+
+.preload-main h2 {
+	margin: 0;
+	padding: 0.5em 0 1em;
+	color: #00A6FF;
+	text-align: center;
+	font-size: 4.25em;
+	font-size: 4vw;
+	line-height: 1;
+}
+
+/* Animations */
+
+/* Initial animation of header elements */
+.loading .preload-logo,
+.loading .preload-loader {
+	opacity: 1;
+	-webkit-animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;
+	animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;
+}
+
+.loading .preload-loader {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+}
+
+@-webkit-keyframes animInitialHeader {
+	from { opacity: 0; -webkit-transform: translate3d(0,800px,0); }
+}
+
+@keyframes animInitialHeader {
+	from { opacity: 0; -webkit-transform: translate3d(0,800px,0); transform: translate3d(0,800px,0); }
+}
+
+/* Header elements when loading finishes */
+.loaded .preload-logo,
+.loaded .preload-loader {
+	opacity: 1;
+}
+
+.loaded .preload-logo {
+	-webkit-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+	-webkit-animation: animLoadedLogo 1s cubic-bezier(0.7,0,0.3,1) forwards;
+	animation: animLoadedLogo 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@-webkit-keyframes animLoadedLogo {
+	to { -webkit-transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1); }
+}
+
+@keyframes animLoadedLogo {
+	to { -webkit-transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1); transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1); }
+}
+
+.loaded .preload-loader {
+	-webkit-animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+	animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@-webkit-keyframes animLoadedLoader {
+	to { opacity: 0; -webkit-transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1); }
+}
+
+@keyframes animLoadedLoader {
+	to { opacity: 0; -webkit-transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1); transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1); }
+}
+
+/* Change the color of the logo */
+.loaded .preload-logo svg path {
+	-webkit-transition: all 0.5s ease 0.3s;
+	transition: all 0.5s ease 0.3s;
+	fill: #fff;
+}
+
+/* Header animation when loading finishes */
+.loaded .preload-header {
+	-webkit-animation: animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards;
+	animation: animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@-webkit-keyframes animLoadedHeader {
+	to { -webkit-transform: translate3d(0,-100%,0); }
+}
+
+@keyframes animLoadedHeader {
+	to { -webkit-transform: translate3d(0,-100%,0); transform: translate3d(0,-100%,0); }
+}
+
+/* Content animations */
+.loaded .preload-main h2,
+.loaded .preload-main .flex,
+.loaded .preload-main .flex .box{
+	-webkit-animation: animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both;
+	animation: animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both;
+}
+
+.loaded .preload-main .flex,
+.loaded .preload-main .flex .box:first-child {
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
+}
+
+.loaded .preload-main .flex .box:nth-child(2) {
+	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s;
+}
+
+.loaded .preload-main .flex .box:nth-child(3) {
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+}
+.loaded .preload-main .flex .box:nth-child(4) {
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+.loaded .preload-main .flex .box:nth-child(5) {
+	-webkit-animation-delay: 0.8s;
+	animation-delay: 0.8s;
+}
+
+@-webkit-keyframes animLoadedContent {
+	from { opacity: 0; -webkit-transform: translate3d(0,200px,0); }
+}
+
+@keyframes animLoadedContent {
+	from { opacity: 0; -webkit-transform: translate3d(0,200px,0); transform: translate3d(0,200px,0); }
+}
+
+/* Change layout class for header */
+.layout-switch .preload-header {
+	position: absolute;
+}
+
+/* No JS */
+.no-js .preload-header {
+	position: relative;
+	min-height: 0px;
+}
+
+.no-js .preload-header .preload-logo {
+	margin-top: 20px;
+	height: 180px;
+	opacity: 1;
+	-webkit-transform: none;
+	transform: none;
+}
+
+.no-js .preload-header .preload-logo svg path {
+	fill: #fff;
+}

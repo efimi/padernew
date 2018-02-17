@@ -26,28 +26,23 @@ class LocationsController extends Controller
         }
         if($user->hasLocationAlready() ){
             $location = $user->matchedLocation();
-            return view('hasLocationAlready', compact('location'));
+            $message = "schon";
+            return view('result', compact('location','message'));
         }
         else {
-            if ($user->isAllowedToClick()) {
-                return view('buttonclick');
-            }
-            else {
-                return view('waitATime', compact('user'));
-            }
-            
+            return view('click');
         }
     }
     public function getLocation(Request $request)
     {   
         // match user to location
-        $user = User::find(1);
         // $amount = $this->getAmount($request);
         $amount = $request->comeTogether == '0' ? 2 : 1;
         $location = Location::getLocationWithSpaceFor($amount);
         // save in DB
-        History::makeNewEntry($user, $location, $amount);
-        return view('getLocation', compact('location'));
+        History::makeNewEntry(Auth::user(), $location, $amount);
+        Match::makeMatch(Auth::user(), $location, $amount);
+        return view('result', compact('location'));
     }
     public function getLocationApi(Request $request)
         {	

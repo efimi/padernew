@@ -51,6 +51,17 @@ class User extends Authenticatable
     }
 
     /**
+     * Social Facebook id 
+     // * for avatar http://graph.facebook.com/ /picture?type=square
+     */
+    public function facebook_id()
+    {
+
+        $social = $this->social->where('service', 'facebook')->first();
+        return $social->social_id;
+    }
+
+    /**
      * For Social Login
      */
     public function hasSocialLinked($service)

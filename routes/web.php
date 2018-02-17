@@ -42,8 +42,16 @@ Route::get('/api/getuser', function(){
 
 Route::get('/', 'LocationsController@startApp');
 Route::post('/', 'LocationsController@getLocation')->name('location.random');
-Route::get('/getLocation', 'LocationsController@getLocation')->name('location.get');
+Route::get('/result', 'LocationsController@getLocation');
 Route::get('/confirmThatICome', 'LocationsController@confirmThatICome')->name('location.confirm');
+
+Route::get('/faq', function(){
+    return view('faq');
+});
+Route::get('/impressum', function(){
+    return view('faq');
+});
+
 
 
 Route::get('/locations', 'LocationsController@showLocationsToday');

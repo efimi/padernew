@@ -1,8 +1,8 @@
-<div>
+
     <h2>Logge dich mit Facebook ein</h2>
 
     <a href="{{url('/login/facebook')}}" class="btn-login">Facebook</a>
-</div>
+
                
 {{-- <h2>Oder mit deiner Email</h2>
    

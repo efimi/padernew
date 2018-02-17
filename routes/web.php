@@ -77,7 +77,7 @@ Route::get('/qrcode/test/{user}', 'QRCodeController@test');
 // Route::get('/confirmThatICome', '@')->name('qrcode');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+// Route::get('/home', 'HomeController@index');
 
 Route::get('login/{service}', 'Auth\SocialLoginController@redirect')->name('facebook_login');
 Route::get('login/{service}/callback', 'Auth\SocialLoginController@callback');

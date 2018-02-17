@@ -58,6 +58,9 @@ class User extends Authenticatable
     {
 
         $social = $this->social->where('service', 'facebook')->first();
+        if (empty($social)) {
+            return null;
+        }
         return $social->social_id;
     }
     /**
@@ -65,9 +68,9 @@ class User extends Authenticatable
      * @return [type] [description]
      */
     public function avatar()
-    {
+    {   
         if(!empty($this->facebook_id())){
-            return "http://graph.facebook.com/" . $this->facebook_id() ."/picture?type=square";
+            return "http://graph.facebook.com/" . $user->facebook_id() ."/picture?type=square";
         }
         else {
             return "img/avatar.png";

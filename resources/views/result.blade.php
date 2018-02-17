@@ -8,7 +8,7 @@
 		<div class="split-row">
 			<div class="left">
 				<a href="#">
-				<img class="avatar shadow" src="http://graph.facebook.com/{{auth()->user()->facebook_id()}}/picture?type=square" alt="">
+				<img class="avatar shadow" src="{{auth()->user()->avatar()}}" alt="">
 				<span>{{ auth()->user()->name}}</span>
 				</a>
 			</div>

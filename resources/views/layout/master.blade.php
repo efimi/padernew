@@ -26,7 +26,7 @@
 				@yield('main')
 
 				<footer>
-					<a href="#" class="shadow">Impressum</a> | <a href="#" class="shadow">Faq</a> | Copyright &copy; 2018 by PaderMeet
+					<a href="#" class="shadow">Impressum</a> | <a href="#" class="shadow">FAQ</a> | Copyright &copy; 2018 by PaderMeet
 					<p>Made with ❤️</p>
 				</footer>
 		</div>

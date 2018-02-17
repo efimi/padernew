@@ -21,6 +21,22 @@ img {
     height: auto;
 }
 
+button{
+	color: #00A6FF;
+	background: #fff;
+}
+form{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	min-height: 300px;
+}
+.form-group{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .flex {
 	display: flex;
 	flex-direction: column;
@@ -125,45 +141,56 @@ img {
 }
 /* Modal Start*/
 .modal{
+	z-index: 5;
+	
+}
+.mask{
+	position: fixed;
+	top: 0;
+	left: 0;
 	height: 100%;
 	width: 100%;
-	justify-content: center;
-	align-items: center;
-	background-color: yellow;
-	display: flex;
-	z-index: 3;
-	position: absolute;
+	z-index: 2;
+	background-color:  #00A6FF;
+	opacity: 0.9;
 }
 .modal-content{
+	height: 700px;
+	overflow: scroll;
+	background: #fff;
 	border-radius: 40px;
-	background-color: #fff;
-	min-height: 400px;
-	/*margin: 0rem 3rem;*/
-	padding: 0.5rem 2rem;
-	z-index: 4;
-	max-width: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem 3rem;
 }
+
 .modal-header{
 	display: flex;
 	justify-content: flex-end;
-	margin-right: 3rem;
-	margin-top: 1rem;
 	font-size: 2em;
 }
 .modal-body{
 	display: flex;
 	flex-direction: column;
-}
-.close{
-	min-width: 50px;
-	min-height: 50px;
-	cursor: pointer;
+	justify-content: space-between;
+	min-height: 600px;
 }
 .explain{
 	color:#00A6FF;
 	font-size: 1.5em;
 	line-height: 1.7;
 }
+.close{
+	min-width: 50px;
+	min-height: 50px;
+	cursor: pointer;
+}
+.close:hover{
+	color: #00A6FF;
+}
+
 
 /*Modal End*/
 
@@ -247,12 +274,16 @@ img {
 	.intro{
 		font-size: 1em;
 	}
+	.explain{
+		font-size: 1em;
+	}
 	
 }
 @media screen and (max-width: 374px) {
 	footer{
 		font-size: 0.75em;
 	}
+	
 }
 @media screen and (max-width: 320px) {
 	.logo{
@@ -262,14 +293,14 @@ img {
 		font-size: 0.75em;
 	}
 }
-@media screen and (min-width: 760px) {
+/*@media screen and (min-width: 760px) {
 	.modal-content{
 		max-width: 30%;
 		padding-bottom: 4em;
 		padding-left: 4em;
 		padding-right: 4em;
 	}
-}
+}*/
 @media screen and (min-width: 415px) {
 	.split-row{
 		width: 415px;

@@ -9,7 +9,7 @@
 		<header class="preload-header">
 			<h1 class="preload-logo">
 				<svg class="preload-inner" width="100%" height="100%" viewBox="0 0 300 160" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo_title">
-					<title id="logo_title">Delightful Demonstrations by Codrops</title>
+					<title id="logo_title">PaderMeet!</title>
 					JO was Geht!!!
 				</svg>
 			</h1>
@@ -21,7 +21,7 @@
 			</div>
 		</header>
 		<div id="app" class="preload-main">
-			<div class="flex loadin" :style="{'min-height': myHeight}">
+			<div class="flex loadin">
 				<!-- <div class="nav box">
 					<a href="#" class="btn-grey">		
 						 english
@@ -37,25 +37,31 @@
 				<a @click="toggleBasicModal()" class="btn-login intro shadow box">Was ist PaderMeet?</a>
 
 				<!-- The Modal -->
-				<div id="explainPaderMeet" class="modal" v-show="showModal" @click="toggleBasicModal()">
+				<div class="mask" v-show="showModal" @click="toggleBasicModal()"></div>
+				<div id="explainPaderMeet" class="modal" v-show="showModal">
 				  <!-- Modal content -->
-				  <div class="modal-content shadow">
-				    <div class="modal-header" @click="toggleBasicModal()">
+					<div class="modal-content shadow">
+				    <div class="modal-header">
 				      <span class="close" @click="toggleBasicModal()">&times;</span>
 				    </div>
 				    <div class="modal-body">
 						<div class="explain">
-						    <h3 class="box">Bei Padermeet ist alles ganz simpel	</h3>
-					     	<h3 class="box">Es gibt genau einen Button, und der ist nur für dich</h3>
-					     	<h3 class="box">Klicke drauf und finde heraus auf welche Location du <i>gematch</i> wurdes</h3>
-					     	<h3 class="box">Bis zu 5 weitere Personen werden auf die selbe Location gematch</h3>
-					     	<h3 class="box">Es gibt nur eine Regel: das Treffen findet um 20:00 Uhr statt.</h3>
-					     	<h3 class="box">Viel Spass bei deinem Treffen, wünscht dir</h3>
-					     	<h3 class="box">Dein PaderMeet-Team.</h3>
-					     	<h3 class="box">🎊 😃 🎉</h3>
+							<p class="box">
+								Bei Padermeet ist alles ganz simpel	 <br> <br>
+								Es gibt genau einen Button, und der ist nur für dich <br> <br>
+							</p>
+							<p>
+								Klicke drauf und finde heraus auf welche Location du <i>gematch</i> wurdes <br> <br>
+								Bis zu 5 weitere Personen werden auf die selbe Location gematch <br> <br>
+							</p>
+							Es gibt nur eine Regel: das Treffen findet um 20:00 Uhr statt. <br> <br>
+							Viel Spass bei deinem Treffen, wünscht dir <br> <br>
+							Dein PaderMeet-Team. <br> <br>
+							🎊 😃 🎉 <br> <br>
 						</div>
 				    </div>
-				  </div>
+				    </div>
+				 
 				</div>
 
 				<div class="button-area">
@@ -72,20 +78,22 @@
 					</div>
 				</div>
 				<!-- The Login Modal -->
-				<div id="loginModal" class="modal" v-show="showLogin" @click="toggleLoginModal()">
+			    <div class="mask" v-show="showLogin" @click="toggleLoginModal()"></div>
+				<div id="loginModal" class="modal" v-show="showLogin">
 				  <!-- Modal content -->
 				  <div class="modal-content">
 				    <div class="modal-header">
-				      <span class="close" @click="toggleLoginModal()">&times;</span>
+				      <div class="close" @click="toggleLoginModal()">&times;</div>
 				    </div>
 				    <div class="modal-body">
-					     <h1 class="box">Logge dich ein und lege los!</h1>
-					     <h1 class="box">🎉</h1>
-						@include('layout.components.loginTemplate')	
+					     <h1>Logge dich ein und lege los!</h1>
+					     <h1>🎉</h1>
+						 
+					 	@include('layout.components.loginTemplate')	
 
 				    </div>
 				    <div class="modal-footer">
-				    	<small></small>
+				    	<small>Ich möchte mich per <a href="/register">Email registrieren</a>.</small>
 				    </div>
 				  </div>
 				</div>
@@ -106,24 +114,13 @@
 			data: {
 				showModal: false,
 				showLogin: false,
-				myHeight: '1200px', 
 			},
 			methods:{
-				toggleHeight(){
-					if(this.myHeight === '1200px'){
-						this.myHeight = '0px'
-					} 
-					else {
-						this.myHeight = '1200px'
-					}
-				},
 				toggleBasicModal(){
-					this.showModal = !this.showModal,
-					this.toggleHeight()
+					this.showModal = !this.showModal
 				},
 				toggleLoginModal(){
-					this.showLogin = !this.showLogin,
-					this.toggleHeight()
+					this.showLogin = !this.showLogin
 				}
 			}
 		});

@@ -69,7 +69,7 @@
 			</div>
 		</div>
 	</a>
-	<small class="box">Für weitere Infos zu {{$location->name}} clicke <a href="{{$location->webiste}}">hier</a></small>
+	<small class="box">Für weitere Infos zu {{$location->name}} clicke <a href="{{$location->website}}">hier</a></small>
 	<div class="split-row">
 		<div class="right">
 			<a href="/faq#wie-funktioniert-padermeet" class="btn-login arrow shadow">und was mache ich jetzt?</a>

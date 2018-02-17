@@ -28,6 +28,7 @@ img {
 	min-height: 1200px;
 	justify-content:space-around;
 	align-items:center;
+	padding: 1em 2em;
 }
 
 
@@ -137,20 +138,31 @@ img {
 	border-radius: 40px;
 	background-color: #fff;
 	min-height: 400px;
-	margin: 0rem 3rem;
+	/*margin: 0rem 3rem;*/
 	padding: 0.5rem 2rem;
 	z-index: 4;
+	max-width: 60%;
 }
 .modal-header{
 	display: flex;
 	justify-content: flex-end;
 	margin-right: 3rem;
 	margin-top: 1rem;
+	font-size: 2em;
 }
 .modal-body{
 	display: flex;
 	flex-direction: column;
-
+}
+.close{
+	min-width: 50px;
+	min-height: 50px;
+	cursor: pointer;
+}
+.explain{
+	color:#00A6FF;
+	font-size: 1.5em;
+	line-height: 1.7;
 }
 
 /*Modal End*/
@@ -241,7 +253,8 @@ img {
 	footer{
 		font-size: 0.75em;
 	}
-}@media screen and (max-width: 320px) {
+}
+@media screen and (max-width: 320px) {
 	.logo{
 		font-size: 1.5em;
 	}
@@ -254,6 +267,4 @@ img {
 		width: 415px;
 
 	}
-}
-	
 }

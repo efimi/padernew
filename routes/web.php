@@ -49,7 +49,11 @@ Route::get('/faq', function(){
     return view('faq');
 });
 Route::get('/impressum', function(){
-    return view('faq');
+    return view('impressum');
+});
+
+Route::get('/test', function(){
+    return view('drops');
 });
 
 

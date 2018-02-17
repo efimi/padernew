@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>PaderMeet</title>
-	<link rel="stylesheet" href="css/s.css">
-	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-	<link rel="stylesheet" href="css/effect.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-	<script src="js/modernizr.custom.js"></script>
-	<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+	@include('layout.static.head')
 </head>
 <body>
 	<div id="preload-container" class="preload-container">
@@ -47,19 +40,20 @@
 				<div id="explainPaderMeet" class="modal" v-show="showModal" @click="toggleBasicModal()">
 				  <!-- Modal content -->
 				  <div class="modal-content shadow">
-				    <div class="modal-header">
+				    <div class="modal-header" @click="toggleBasicModal()">
 				      <span class="close" @click="toggleBasicModal()">&times;</span>
 				    </div>
 				    <div class="modal-body">
-				    	
-					    <h2 class="box">Bei Padermeet ist alles ganz simpel	</h2>
-				     	<h2 class="box">Es gibt genau einen Button, und der ist nur für dich</h2>
-				     	<h2 class="box">Klicke drauf und finde heraus auf welche Location du <i>gematch</i> wurdes</h2>
-				     	<h2 class="box">Bis zu 5 weitere Personen werden auf die selbe Location gematch</h2>
-				     	<h2 class="box">Es gibt nur eine Regel: das Treffen findet um 20:00 Uhr statt.</h2>
-				     	<h2 class="box">Viel Spass bei deinem Treffen, wünscht dir</h2>
-				     	<h2 class="box">Dein PaderMeet-Team.</h2>
-				     	<h2 class="box">🎊 😃 🎉</h2>
+						<div class="explain">
+						    <h3 class="box">Bei Padermeet ist alles ganz simpel	</h3>
+					     	<h3 class="box">Es gibt genau einen Button, und der ist nur für dich</h3>
+					     	<h3 class="box">Klicke drauf und finde heraus auf welche Location du <i>gematch</i> wurdes</h3>
+					     	<h3 class="box">Bis zu 5 weitere Personen werden auf die selbe Location gematch</h3>
+					     	<h3 class="box">Es gibt nur eine Regel: das Treffen findet um 20:00 Uhr statt.</h3>
+					     	<h3 class="box">Viel Spass bei deinem Treffen, wünscht dir</h3>
+					     	<h3 class="box">Dein PaderMeet-Team.</h3>
+					     	<h3 class="box">🎊 😃 🎉</h3>
+						</div>
 				    </div>
 				  </div>
 				</div>

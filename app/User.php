@@ -66,7 +66,7 @@ class User extends Authenticatable
      */
     public function avatar()
     {
-        if($this->facebook_id()){
+        if(!empty($this->facebook_id())){
             return "http://graph.facebook.com/" . $this->facebook_id() ."/picture?type=square";
         }
         else {

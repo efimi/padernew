@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.masterNoLoad')
 
 @section('main')
 	<div class="logo box">
@@ -65,7 +65,7 @@
 		 	@include('layout.components.loginTemplate')	
 	    </div>
 	    <div class="modal-footer">
-			
+			<small>Ich möchte mich per <a href="/register">Email registrieren</a>.</small>
 	    </div>
 	  </div>
 	</div>

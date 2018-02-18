@@ -53,7 +53,7 @@ Route::get('/impressum', function(){
 });
 
 Route::get('/test', function(){
-    return view('drops');
+    return view('auth.loginNoLoad');
 });
 
 

@@ -31,14 +31,7 @@
 				</footer>
 		</div>
 	</div><!-- /container -->
-	<script>
-		var app = new Vue({
-			el: '#app',
-			data: {
-				showModal: false,
-			},
-		});
-	</script>
+	@yield('vue')
 	<script src="js/classie.js"></script>
 	<script src="js/pathLoader.js"></script>
 	<script src="js/main.js"></script>

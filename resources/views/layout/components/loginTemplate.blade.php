@@ -1,12 +1,12 @@
 
-<h2>Logge dich mit Facebook ein</h2>
+<span>Logge dich mit Facebook ein</span>
 
 <a href="{{url('/login/facebook')}}" class="btn-login">Facebook</a>
 
                
-<h2>Oder mit deiner Email</h2>
    
 <form class="" method="POST" action="{{ route('login') }}">
+<span>Oder mit deiner Email</span>
     {{ csrf_field() }}
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <label for="email">E-Mail Addresse</label>
@@ -46,5 +46,5 @@
                 Passwort vergessen?
             </a>
         </div>
-
+    <small>Ich möchte mich per <a href="/register">Email registrieren</a>.</small>
 </form>

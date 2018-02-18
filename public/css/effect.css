@@ -68,8 +68,8 @@ body{
 
 /* Content */
 .preload-main {
-	overflow: hidden;
-	margin: 0 auto;
+/*	overflow: hidden;
+	margin: 0 auto;*/
 }
 
 .preload-main h2 {

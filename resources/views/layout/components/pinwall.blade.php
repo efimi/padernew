@@ -1,5 +1,5 @@
 <div class="card shadow">
-		<a href="#pinwall-form" class="btn-login"> Komm mal wieder runter👇</a>
+		<a href="#pinwall-form" class="btn-login"> Komm mal runter👇</a>
 		<div class="pinwall">
 			<h2>Pinwand von </h2>
 			

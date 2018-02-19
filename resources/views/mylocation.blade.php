@@ -40,11 +40,11 @@
 		@include('layout.components.usedplaces', $location)
 	</div>
 	<div class="info">
-		<small> Schau dir mal die Pinnwand an 😯</small>	
+		<small> Schau dir mal die Pinnwand von {{$location->name}} an 😯</small>	
 	</div>
 	
-	<div class="box item">
-		<a href="/pinwall" class="btn-middle">Die Pinnwand von {{$location->name}}</a>
+	<div class="button-area box item">
+		<a href="/pinwall" class="btn-middle">Die Pinnwand </a>
 	</div>
 	
 	<a href="#" alt="für weitere infos hier clicken" class="result shadow card-result box item">

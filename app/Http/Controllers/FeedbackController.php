@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Feedback;
+use Auth;
 
 class FeedbackController extends Controller
 {
-    //
+    
     public function store()
     {
     	$this->validate(request(),[
@@ -16,7 +17,10 @@ class FeedbackController extends Controller
     		'body' => 'required',
     		'stars' => 'required'
     	]);
-        $user = User::find(1);
+        $user = Auth::user();
+        if (empty($user)) {
+            $user = User::find(1);
+        }
     	$data = request()->all();
         $data['user_id'] = $user->id; 
     	Feedback::create($data);

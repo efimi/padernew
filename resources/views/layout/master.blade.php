@@ -7,7 +7,7 @@
 	<div id="preload-container" class="preload-container">
 		<!-- initial header -->
 		<header class="preload-header">
-			<h1 class="preload-logo">
+			<h1 class="preload-logo ">
 				<svg class="preload-inner" width="100%" height="100%" viewBox="0 0 300 160" preserveAspectRatio="xMidYMin meet" aria-labelledby="logo_title">
 					<title id="logo_title">PaderMeet - die Neue Treffapp für die Stadt Paderborn</title>
 					@yield('loading')
@@ -26,14 +26,14 @@
 				@yield('main')
 
 				<footer>
-					<a href="#" class="shadow">Impressum</a> | <a href="#" class="shadow">FAQ</a> | Copyright &copy; 2018 by PaderMeet
+					<a href="/impressum" class="shadow">Impressum</a> | <a href="/faq" class="shadow">FAQ</a> | Copyright &copy; 2018 by PaderMeet
 					<p>Made with ❤️</p>
 				</footer>
 		</div>
 	</div><!-- /container -->
 	@yield('vue')
-	<script src="js/classie.js"></script>
-	<script src="js/pathLoader.js"></script>
-	<script src="js/main.js"></script>
+	<script src="{{url('/')}}/js/classie.js"></script>
+	<script src="{{url('/')}}/js/pathLoader.js"></script>
+	<script src="{{url('/')}}/js/main.js"></script>
 </body>
 </html>

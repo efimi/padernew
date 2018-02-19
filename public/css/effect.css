@@ -107,7 +107,7 @@ body{
 
 /* Header elements when loading finishes */
 .loaded .preload-logo{
-	opacity: 0;
+	opacity: 1;
 }
 .loaded .preload-loader {
 	opacity: 1;

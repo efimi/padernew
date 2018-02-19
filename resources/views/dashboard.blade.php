@@ -8,13 +8,24 @@
 		@include('layout.components.avatarAndLog')
 		
 		<h1>Dashboard</h1>
+		@if (auth()->user()->hasLocationAlready())
+				<h3>Du wurdest heute auf {{auth()->user()->matchedLocation()->name}} gematcht</h3>
+				<a href="/unmatch" class="btn-login">⚠️Löse deinen Match auf!💔</a>
+			@else
+				<a href="/result" class="btn-middle item"> Finde Jetzt eine Neue Location!</a>
+			@endif
+
 	<div class="dashboard">
+
 		<div class="dleft">
 			<div class="logo">
 				<a href="#"><img src="img/logo.png" alt=""></a>
 			</div>
+			
+				<a href="/feedback" class="btn-login item"> Ich würde gern mal Feedback geben 📙</a>
 		</div>
 		<div class="dright">
+
 			<div class="settings"></div>
 			<div class="match-history">
 				<div class="h-table">
@@ -49,4 +60,8 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('vue')
+<script>
 @endsection

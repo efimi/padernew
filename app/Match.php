@@ -65,6 +65,11 @@ class Match extends Model
     	else {
     	}
     }
+
+    public static function unmatchToday($user)
+    {
+        Match::whereDate('created_at', today())->where('user_id', $user->id)->delete();
+    }
     public static function setQrTestMadeFor($user)
     {
         $match = Match::matchedTodayFor($user);

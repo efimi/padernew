@@ -1,16 +1,14 @@
 @extends('layout.master')
 
 @section('loading')
-	@include('layout.components.svg.clockSVG')
+	@include('layout.components.svg.markerSVG')
 @endsection
 
 @section('main')
 	<div class="logo box">
 			<h1>Willkommen bei</h2>
 		<a href="#"><img src="img/logo.png" alt=""></a>
-	</div>
-	<div class="logo box">
-		<span>- der neunen Treffapp für Paderborn -</span>
+		<h3>- der neunen Treffapp für Paderborn -</h3>
 	</div>
 	<a @click="toggleBasicModal()" class="btn-login intro shadow box"> 🤔 Was ist PaderMeet?</a>
 
@@ -42,16 +40,12 @@
 					Dein PaderMeet-Team. <br> <br>
 				</p>
 				<h1>🎊😄🎉</h1> <br> <br>
+				<span> <a @click="toggleLoginModal()">Logge dich ein</a> um fortzufahren!  </span>
 			</div>
 	    </div>
 	    </div>
 	 
 	</div>
-
-	<div class="button-area">
-		<span> Logge dich ein um fortzufahren!  </span>
-	</div>
-	<div class="space-sm"></div>
 	<div class="split-row">
 		<div class="left">
 			<img class="avatar shadow" src="img/avatar.png" alt="">

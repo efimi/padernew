@@ -8,7 +8,7 @@
 	
 	<div class="split-row">
 		<div class="left">
-			<a href="#">
+			<a href="/dashboard">
 			<img class="avatar shadow" src="{{auth()->user()->avatar()}}" alt="">
 			<span>{{ auth()->user()->name}}</span>
 			</a>

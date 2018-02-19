@@ -16,6 +16,8 @@ Route::get('/start', function(){
 Route::get('/pinwall','PinController@show');
 Route::post('/pinwall','PinController@store');
 
+Route::get('/dashboard','HomeController@index');
+
 
 Route::get('/api/getlocation/{amount}', function($amount) {
 			$user = \App\User::find(1);

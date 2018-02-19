@@ -318,12 +318,36 @@ form{
 	word-break: keep-all;
 }
 
+/*
+	Dashboard
+ */
+.dashboard{
+	display: flex;
+	flex-direction: row;
+	min-width: 80vw;
+	justify-content: space-around;
+}
+.h-row{
+	display: flex;
+	flex-direction: row;
+	min-width: 300px;
+}
+.h-entry{
+	padding: 1rem 2rem;
+	margin-left: 5px;
+	min-width: 100px;
+
+}
+
 @media screen and (max-width: 414px) {
 	.intro{
 		font-size: 1em;
 	}
 	.explain{
 		font-size: 1em;
+	}
+	.dashboard{
+		flex-direction: column;
 	}
 	
 }
@@ -342,11 +366,12 @@ form{
 	}
 }
 @media screen and (min-width: 700px) {
-
+	
 }
 @media screen and (min-width: 415px) {
 	.split-row{
 		width: 415px;
 
 	}
+	
 }

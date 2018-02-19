@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\user;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,7 +24,9 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $user = Auth::user();
+        $matches = $user->matches()->get(); 
+        return view('dashboard', compact('matches'));
     }
 }

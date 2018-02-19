@@ -25,6 +25,34 @@ class Match extends Model
     {
     	return Match::where('user_id', $user->id)->whereDate('created_at', today())->first();
     }
+
+    /**
+     * Liefert alle Matchingeinträge eines users 
+     * @param  [type] $user [description]
+     * @return [type]       [description]
+     */
+    public static function allMatchesEver($user)
+    {
+        return Match::where('user_id', $user->id)->get();
+    }
+    /**
+     * Liefert alle zu in Realtion zu einem Matchingeintrag.
+     * @return [type] [description]
+     */
+    public function participants()
+    {   
+        $participants = Match::whereDate('created_at', $this->created_at)->where('location_id', $this->location_id)->get();
+
+        // dd($participants);
+        return $participants;
+    }
+    /**
+     * Tragt ein Match in die Datenbank ein.
+     * @param  [type] $user     [description]
+     * @param  [type] $location [description]
+     * @param  [type] $amount   [description]
+     * @return [type]           [description]
+     */
     public static function makeMatch($user, $location, $amount)
     {
     	if(empty(Match::matchedTodayFor($user))){

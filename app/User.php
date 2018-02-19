@@ -37,7 +37,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(History::class);
     }
-    public function match()
+    public function matches()
     {
         return $this->hasMany(Match::class);
     }
@@ -81,6 +81,10 @@ class User extends Authenticatable
             return "img/avatar.png";
         }
     }
+    /**
+     * Antwortet auf die Frage: Der wievielte in der Matchreihenfolge ist dieser User?
+     * @return [type] [description]
+     */
     public function matchedNumberToday()
     {
         $location = $this->matchedLocation;

@@ -3,7 +3,7 @@
 		<div class="pinwall">
 			<h2>Pinwand von </h2>
 			
-				<h1 style="font-family: chunky" class="card-result shadow"> {{$location->name}}</h1>
+				<h1 style="font-family: paderchunky" class="card-result shadow"> {{$location->name}}</h1>
 			
 			@foreach($pins as $pin)
 				<div class="pinpost">

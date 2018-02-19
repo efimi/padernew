@@ -5,7 +5,7 @@
 	@include('layout.components.pinwall', [ $location, $pins])
 	<div class="info">	
 		<a href="/pinwall" class="btn-login">💈refresh💈</a> 
-		<a href="/">zurück zur Übersicht</a>
+		<a href="/" class="btn-login">zurück zur Übersicht</a>
 	</div>
 
 	

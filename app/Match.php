@@ -43,7 +43,7 @@ class Match extends Model
     {   
         $participants = Match::whereDate('created_at', $this->created_at)->where('location_id', $this->location_id)->get();
 
-        // dd($participants);
+        // dd($participclants);
         return $participants;
     }
     /**

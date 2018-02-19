@@ -24,7 +24,7 @@
 	    </div>
 	    <div class="modal-body">
 			<div class="explain">
-				<h1>🎓😁Der PaderMeet Guide </h1>
+				<h1>🎓😁Der PaderMeet Leute Treffen Guide </h1>
 				<p class="box">
 					✅ Bei Padermeet ist alles ganz simpel	<br> <br>
 					Es gibt genau einen ☝️ Button, und der ist nur für <b>dich</b> <br> <br>

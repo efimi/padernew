@@ -1,6 +1,7 @@
 @if( $location->usedplaces() > 1)
+	<p>😄</p>
 	<p>
-		Derzeit kommen noch {{$location->usedplaces()}} weitere Personen!😄
+		Derzeit kommen noch {{$location->usedplaces()}} weitere Personen!🙋
 	</p>
 @else
 	<p>Woooooooowwww!!</p>

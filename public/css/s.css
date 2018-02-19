@@ -110,6 +110,9 @@ form{
 	padding: 1rem 2rem;
 	margin-top: 2rem;
 }
+.card-round{
+	border-radius: 40px;
+}
 .card-result{
 	color: #fff;
 	border-radius: 40px;
@@ -281,7 +284,7 @@ form{
 }
 
 .arrow:before{
-  content:"🤔 ";
+  content:" → ";
   /*font-size: 1em;*/
   color:#fff;
   opacity: 0;

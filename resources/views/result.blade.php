@@ -37,8 +37,8 @@
 	</div>
 
 
-	<a href="#" alt="für weitere infos hier clicken" class="result shadow card-result box item">
-		<div class="">
+	<a href="#" alt="für weitere infos hier clicken" class="shadow box item card-round">
+		<div class="card-result">
 			<div class="map-left ">
 				 @include('layout.components.map', $location)
 			</div>

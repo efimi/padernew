@@ -1,6 +1,7 @@
 @extends('layout.master')
 
 @section('loading')
+		@include('layout.components.svg.markerSVG')
 @endsection
 
 @section('main')

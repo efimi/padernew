@@ -1,7 +1,6 @@
 <div id="map_wrapper" style="height: 400px;">
     <div id="map_canvas" class="mapping" style="width: 100%; height: 100%"></div>
 </div>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, accusantium.</p>
 <script>
   jQuery(function($) {
     // Asynchronously Load the map API 

@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('loading')
+	@include('layout.components.svg.clockSVG')
+@endsection
+
 @section('main')
 	<div class="logo box">
 			<h1>Willkommen bei</h2>

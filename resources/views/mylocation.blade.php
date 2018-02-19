@@ -1,6 +1,7 @@
 @extends('layout.master')
 
 @section('loading')
+	@include('layout.components.svg.markerSVG')
 @endsection
 
 @section('main')
@@ -47,7 +48,7 @@
 		<a href="/pinwall" class="btn-middle arrow">Die Pinnwand </a>
 	</div>
 	
-	<a href="#" alt="für weitere infos hier clicken" class="result shadow card-rounded  box item">
+	<a href="#" alt="für weitere infos hier clicken" class="result shadow card-round  box item">
 		<div class="card-result">
 			<div class="map-left ">
 				 @include('layout.components.map', $location)

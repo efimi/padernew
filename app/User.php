@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\History;
 use App\Match;
 use App\Feedback;
+use App\Pin;
 use Carbon\Carbon;
 
 class User extends Authenticatable
@@ -49,6 +50,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserSocial::class);
     }
+    public function pins()
+    {
+        return $this->hasMany(Pin::class);
+    }
 
     /**
      * Social Facebook id 
@@ -76,6 +81,20 @@ class User extends Authenticatable
             return "img/avatar.png";
         }
     }
+    public function matchedNumberToday()
+    {
+        $location = $this->matchedLocation;
+        $allmatches = $location->allUsedMatchesForLocationToday();
+        $number = 0;
+        for ($i=0; $i < $allmatches->count(); $i++) { 
+            if ($allmatches->find($i)->user_id = $this->id) {
+                $number = $i;
+                break;
+            }
+        }
+        return $number;
+
+    } 
     /**
      * For Social Login
      */

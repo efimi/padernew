@@ -350,6 +350,13 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
         ),
+        'L' => 
+        array (
+            'Laracasts\\Presenter' => 
+            array (
+                0 => __DIR__ . '/..' . '/laracasts/presenter/src',
+            ),
+        ),
         'J' => 
         array (
             'JakubOnderka\\PhpConsoleHighlighter' => 
@@ -401,6 +408,7 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LocationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/LocationsController.php',
         'App\\Http\\Controllers\\MatchesController' => __DIR__ . '/../..' . '/app/Http/Controllers/MatchesController.php',
+        'App\\Http\\Controllers\\PinController' => __DIR__ . '/../..' . '/app/Http/Controllers/PinController.php',
         'App\\Http\\Controllers\\QRCodeController' => __DIR__ . '/../..' . '/app/Http/Controllers/QRCodeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -416,6 +424,7 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'App\\Observers\\UserSocialObserver' => __DIR__ . '/../..' . '/app/Observers/UserSocialObserver.php',
         'App\\OpeningHours' => __DIR__ . '/../..' . '/app/OpeningHours.php',
         'App\\Photo' => __DIR__ . '/../..' . '/app/Photo.php',
+        'App\\Pin' => __DIR__ . '/../..' . '/app/Pin.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -1940,6 +1949,10 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
+        'Laracasts\\Presenter\\Contracts\\PresentableInterface' => __DIR__ . '/..' . '/laracasts/presenter/src/Laracasts/Presenter/Contracts/PresentableInterface.php',
+        'Laracasts\\Presenter\\Exceptions\\PresenterException' => __DIR__ . '/..' . '/laracasts/presenter/src/Laracasts/Presenter/Exceptions/PresenterException.php',
+        'Laracasts\\Presenter\\PresentableTrait' => __DIR__ . '/..' . '/laracasts/presenter/src/Laracasts/Presenter/PresentableTrait.php',
+        'Laracasts\\Presenter\\Presenter' => __DIR__ . '/..' . '/laracasts/presenter/src/Laracasts/Presenter/Presenter.php',
         'Laravel\\Socialite\\AbstractUser' => __DIR__ . '/..' . '/laravel/socialite/src/AbstractUser.php',
         'Laravel\\Socialite\\Contracts\\Factory' => __DIR__ . '/..' . '/laravel/socialite/src/Contracts/Factory.php',
         'Laravel\\Socialite\\Contracts\\Provider' => __DIR__ . '/..' . '/laravel/socialite/src/Contracts/Provider.php',

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\History;
 use App\Location;
 use App\Match;
+use App\Pin;
 use App\User;
-use App\History;
 use Auth;
+use Illuminate\Http\Request;
 
 class LocationsController extends Controller
 {
@@ -26,22 +26,27 @@ class LocationsController extends Controller
         }
         if($user->hasLocationAlready() ){
             $location = $user->matchedLocation();
+            // lastlocation für Feedback ->users
+            $pins = Pin::showAllPinsFor($location);
             $message = "schon";
-            return view('result', compact('location','message'));
+            return view('mylocation', compact('location','pins'));
         }
         else {
             return view('click');
         }
     }
+    /**
+     * Liefert eine Location zurück. Und Trägt in der History ein.
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function getLocation(Request $request)
     {   
-        // match user to location
-        // $amount = $this->getAmount($request);
         $amount = $request->comeTogether == '0' ? 2 : 1;
         $location = Location::getLocationWithSpaceFor($amount);
         // save in DB
         History::makeNewEntry(Auth::user(), $location, $amount);
-        Match::makeMatch(Auth::user(), $location, $amount);
+        // Match::makeMatch(Auth::user(), $location, $amount);
         return view('result', compact('location'));
     }
     public function getLocationApi(Request $request)
@@ -59,7 +64,7 @@ class LocationsController extends Controller
 
     public function confirmThatIcome()
     {
-        $user = User::find(1);
+        $user = Auth::user();
         $lastEntry = History::lastUserEntry($user);
         $amount = $lastEntry->amount;
         $location = $lastEntry->location;

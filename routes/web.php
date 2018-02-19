@@ -11,8 +11,12 @@
 |
 */
 Route::get('/start', function(){
-	return view('startVue');
+    return view('startVue');
 });
+Route::get('/pinwall','PinController@show');
+Route::post('/pinwall','PinController@store');
+
+
 Route::get('/api/getlocation/{amount}', function($amount) {
 			$user = \App\User::find(1);
             $location = \App\Location::getLocationWithSpaceFor($amount);

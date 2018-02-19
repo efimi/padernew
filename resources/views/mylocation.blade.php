@@ -29,14 +29,24 @@
 	<div class="logo box">
 		<a href="#"><img src="img/logo.png" alt=""></a>	
 	</div>
+	{{-- LasLocation für Ffedback berterte {{$user->lastLocation()}} --}}
 	
 	<div class="intro item">
-		<h1>🎊</h1>
-		Schau mal was 📍 wir für dich gefunden haben
-		<h1>🎉</h1>
+		{{-- nur wenn der user nochmal die Seite beuscht und schon zugteilt wurde. --}}
+			<span>Hallo {{auth()->user()->name}}!</span>
 	</div>
 
-
+	<div class="news">
+		@include('layout.components.usedplaces', $location)
+	</div>
+	<div class="info">
+		<small> Schau dir mal die Pinnwand an 😯</small>	
+	</div>
+	
+	<div class="box item">
+		<a href="/pinwall" class="btn-middle">Die Pinnwand von {{$location->name}}</a>
+	</div>
+	
 	<a href="#" alt="für weitere infos hier clicken" class="result shadow card-result box item">
 		<div class="">
 			<div class="map-left ">
@@ -47,21 +57,11 @@
 				<p>
 					{{ $location->address}}
 				</p>
-				@include('layout.components.usedplaces', $location)
 			</div>
 		</div>
-	</a>		
-			
-	<small class="box item">Du willst hier hin??? 😃</small>
-	<small class="box item">Bestätige noch kurz 👇 dass du hin gehst!😘</small>
-	<div class="button-area box item">
-		<a href="/confirmThatICome" class="btn-middle shadow">		
-				<span>Super, da geht ich hin!✌️</span>
-		</a>
-	</div>
-	<small class="box item">Für weitere Infos zu {{$location->name}} clicke <a href="{{$location->website}}">hier</a>
-	@include('layout.components.refreshTipp')
+	</a>
 
+	<small class="box item">Für weitere Infos zu {{$location->name}} clicke <a href="{{$location->website}}">hier</a>
 	 <br> Für alle weiteren Fragen besuche doch einfach unser <a href="/faq">FAQ</a>🤓
 	
 	</small>

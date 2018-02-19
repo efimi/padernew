@@ -4,6 +4,7 @@ namespace App;
 
 use App\Match;
 use App\OpeningHours;
+use App\Pin;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,8 +18,12 @@ class Location extends Model
     {
         return $this->hasMany(Match::class);
     }
+    public function pins()
+    {
+    	return $this->hasMany(Pin::class);
+    }
     /**
-     * HilfsMethode für um die bisherigen Bentuzen Plätze zu
+     * HilfsMethode für um die bisherigen Bentuzen Plätze zu errechnen
      * @return [Match] [Gibt alle Matches zurück, welche heute erstellt wurden]
      */
 	public function allUsedMatchesForLocationToday()

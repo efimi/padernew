@@ -40,13 +40,19 @@ form{
 .flex {
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
 	min-height: 1200px;
 	justify-content:space-around;
 	align-items:center;
 	padding: 1em 2em;
+	padding:5px; /* this */
 }
 
+#app > div{
+	margin: 1em 0;
+}
+.item{
+	margin: 1em 0;
+}
 
 .nav {
 	display: flex;
@@ -263,9 +269,8 @@ form{
 }
 
 .arrow:before{
-  content:" → ";
-  font-size: 2em;
-  vertical-align: middle;
+  content:"🤔 ";
+  /*font-size: 1em;*/
   color:#fff;
   opacity: 0;
   -webkit-transition: all 250ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
@@ -279,6 +284,25 @@ form{
 .arrow:hover {
   width:170px;
 }
+
+.pinpost {
+	display: flex;
+	flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1rem 0;
+}
+.avatarbox{
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+.pintext{
+	max-width: 100px;
+	margin-left: 1em;
+	word-break: keep-all;
+}
+
 @media screen and (max-width: 414px) {
 	.intro{
 		font-size: 1em;

@@ -30,7 +30,7 @@
 					Es gibt genau einen ☝️ Button, und der ist nur für <b>dich</b> <br> <br>
 				</p>
 				<p>
-					Klicke drauf und finde heraus auf welche Location du <i>gematcht</i> wurdes <br> <br>
+					Klicke drauf und finde heraus auf welche Location📍 du <i>gematcht</i> wurdes <br> <br>
 					Bis zu 4 🙋 weitere Personen werden auf die selbe Location gematcht <br> <br>
 				</p>
 				<p>

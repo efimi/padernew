@@ -16,7 +16,7 @@
 	
 	<div class="intro item">
 		{{-- nur wenn der user nochmal die Seite beuscht und schon zugteilt wurde. --}}
-			<span>Hallo {{auth()->user()->name}}!</span>
+			<span>Hallo <a href="/dashboard">{{auth()->user()->name}}</a>!</span>
 	</div>
 
 	<div class="news">

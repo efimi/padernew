@@ -31,6 +31,6 @@ class FacebookAccountLinked extends Mailable
      */
     public function build()
     {
-        return $this->subject('Facebook Account verbunden')->view('email.social.facebook_linked');
+        return $this->subject('Regestrierung bei PaderMeet 😀')->markdown('email.social.facebook_linked');
     }
 }

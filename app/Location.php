@@ -22,6 +22,9 @@ class Location extends Model
     {
     	return $this->hasMany(Pin::class);
     }
+    public function openinghours(){
+    	return $this->hasMany(OpeningHours::class);
+    }
     /**
      * HilfsMethode für um die bisherigen Bentuzen Plätze zu errechnen
      * @return [Match] [Gibt alle Matches zurück, welche heute erstellt wurden]
@@ -124,5 +127,28 @@ class Location extends Model
 	public function hasFreeSpace($amount)
 	{
 		return $this->usedPlaces() + $amount <= $this->maxPlacesToday();
+	}
+	public function closesTodayAt()
+	{	
+		// $thisDay = today()->dayOfWeek + 1;
+		$thisDay = 3;
+		$time = Location::find(81)->openinghours()->where('day_id', $thisDay)->where('closed','!=', "")->get();
+
+		if ($time->first()->closed < 2000 ) {
+			$thisDay = 4;
+		}
+		// wenn zwei öffnungszeiten dann nimm die zeweite
+		// wenn eine öffnungzeit, dann vergleiche
+		// nimm nächste öffnungszeit
+		if ($time < 2000) {
+			$thisDay = today()->addDay(1)->dayOfWeek +1;
+			$time = $this->openinghours()->where('day_id', $thisDay)->where('opened','!=',"")->first()->opened;
+		}
+		if ($time === "0000") {
+			# code...
+		}
+		$time = str_split($time,2);
+		$time = implode(":", $time);
+		return $time;
 	}
 }

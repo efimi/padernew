@@ -18,8 +18,10 @@ class OpeningHours extends Model
     public static function getOpenAt($time = 2000)
     {
     	$thisDay = today()->dayOfWeek + 1;
+        $nextDay = today()->addDay(1)->dayOfWeek + 1;
     	$open = OpeningHours::where('day_id', $thisDay)->where('opened','<', $time)->where('closed','>', $time)
-    						->orWhere('day_id', $thisDay)->where('opened','<', $time)->where('closed', "")
+                            ->orWhere('day_id', $thisDay)->where('opened','<', $time)->where('closed', "")
+    						->orWhere('day_id', $nextDay)->where('opened',"")->where('closed', '<', $time)
     						->get();
     	return $open;
     }
@@ -28,7 +30,7 @@ class OpeningHours extends Model
     	$instances = self::getOpenAt($time);
     	// make a new collection
     	$locations = collect([]);
-    	// fill collection
+    	// fill collection, exclude same
     	foreach ($instances as $instace) {
     		$locations->push($instace->location);
     	}

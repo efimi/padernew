@@ -25,7 +25,14 @@ class Match extends Model
     {
     	return Match::where('user_id', $user->id)->whereDate('created_at', today())->first();
     }
-
+    /**
+     * Gitb wieder wie viele heute schon gematcht wurden
+     * @return [type] [description]
+     */
+    public static function totalMatchesToday()
+    {
+        return Match::whereDate('created_at', today())->get()->count();
+    }
     /**
      * Liefert alle Matchingeinträge eines users 
      * @param  [type] $user [description]

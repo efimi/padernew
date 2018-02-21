@@ -16,6 +16,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Social\FacebookAccountWasLinked' => [
             'App\Listeners\Social\SendFacebookLinkedEmail',
         ],
+        'App\Events\Match\UserWasMatchedToLocation' => [
+            'App\Listeners\Match\SendUserMatchedToLocationEmail'
+        ],
+        'App\Events\Match\LocationWasFilled' => [
+            'App\Listeners\Match\SendLocationFilledEmail'
+        ],
     ];
 
     /**

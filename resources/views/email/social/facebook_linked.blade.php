@@ -1,5 +1,5 @@
-s@component('mail::message')
-# Hallo!!!😀
+@component('mail::message')
+# Hallo {{$user->name}} !!!😀
 
 PaderMeet wurde mit Facebook verbunden!
 

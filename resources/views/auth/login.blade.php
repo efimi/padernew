@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('loading')
-	@include('layout.components.svg.markerSVG')
+	@include('layout.components.svg.markerSVG', ['text'=> 'Na, heute schon was vor?'])
 @endsection
 
 @section('main')

@@ -8,7 +8,7 @@
 	
 	<h1 class="item">Gebe uns ein Feeback 😁</h1>
 	@include('feedback.form')
-
+	
 	<div class="feedbacks">
 		@foreach($feedbacks as $feedback)
 		

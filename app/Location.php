@@ -31,7 +31,20 @@ class Location extends Model
      */
 	public function allUsedMatchesForLocationToday()
 	{
-		return Match::where('location_id', $this->id)->whereDate('created_at',today())->get();
+		return $this->matches()->whereDate('created_at',today())->get();
+	}
+	/**
+	 * Gibt alle User zurück die auch diese Location gematcht wurden.
+	 * @return [Users] [colleciton von Usern]
+	 */
+	public function usersMatched()
+	{
+		$matchesToday = $this->allUsedMatchesForLocationToday();
+		$users =collect();
+		foreach ($matchesToday as $m) {
+			$users->push($m->user);
+		}
+		return $users; 
 	}
 	/**
 	 * Gibt die Anzahl an schon benutzten Plätzen derjenigen Location zurück. Die 'amount' Spalte wird dabei aufsummiert.
@@ -128,27 +141,35 @@ class Location extends Model
 	{
 		return $this->usedPlaces() + $amount <= $this->maxPlacesToday();
 	}
-	public function closesTodayAt()
-	{	
-		// $thisDay = today()->dayOfWeek + 1;
-		$thisDay = 3;
-		$time = Location::find(81)->openinghours()->where('day_id', $thisDay)->where('closed','!=', "")->get();
+	public function closesTodayAt($closeTo = 2000)
+    {	
+    	$thisDay = today()->dayOfWeek + 1;
+    	
+    	$time = $this->openinghours()->where('day_id', $thisDay)->where('closed','!=', "")
+    					->get();
+    
+    	if ($time->first()->closed < $closeTo ) {
+    		return;
+    	}
+    	if ($time < $closeTo ) {
+    		$nextDay = today()->addDay(1)->dayOfWeek +1;
+    		$time = $this->openinghours()->where('day_id', $thisDay)->where('opened','!=',"")->first()->opened;
+    	}
+    	if ($time === "0000") {
+    		return;
+    	}
+    	$time = str_split($time,2);
+    	$time = implode(":", $time);
+    	return $time;
+    }
 
-		if ($time->first()->closed < 2000 ) {
-			$thisDay = 4;
-		}
-		// wenn zwei öffnungszeiten dann nimm die zeweite
-		// wenn eine öffnungzeit, dann vergleiche
-		// nimm nächste öffnungszeit
-		if ($time < 2000) {
-			$thisDay = today()->addDay(1)->dayOfWeek +1;
-			$time = $this->openinghours()->where('day_id', $thisDay)->where('opened','!=',"")->first()->opened;
-		}
-		if ($time === "0000") {
-			# code...
-		}
-		$time = str_split($time,2);
-		$time = implode(":", $time);
-		return $time;
+    public function scopeClosest($query) 
+    {
+	    $nextDayOfWeek = now()->addDay()->dayOfWeek;
+
+	    $hours = $this->openinghours->where('day_id', $nextDayOfWeek)
+	                               ->sortBy('closes')
+	                               ->first();
+	    return $hours->closes;
 	}
 }

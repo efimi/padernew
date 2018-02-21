@@ -6,7 +6,6 @@ use Mail;
 use App\Events\Social\FacebookAccountWasLinked;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Mail\Social\FacebookAccountLinked;
 
 class SendFacebookLinkedEmail
 {
@@ -28,6 +27,6 @@ class SendFacebookLinkedEmail
      */
     public function handle(FacebookAccountWasLinked $event)
     {
-        Mail::to($event->user)->send(new FacebookAccountLinked($event->user));
+        Mail::to($event->user)->send(new \App\Mail\Social\FacebookAccountLinked($event->user));
     }
 }

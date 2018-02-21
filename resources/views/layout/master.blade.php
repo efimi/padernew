@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 	@include('layout.static.head')
+	<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/normalize.css" />
+	<link rel="stylesheet" href="{{url('/')}}/css/effect.css">
+	<script src="{{url('/')}}/js/modernizr.custom.js"></script>
+	<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
 </head>
 <body>
 	<div id="preload-container" class="preload-container">

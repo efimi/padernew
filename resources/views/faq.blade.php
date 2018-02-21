@@ -5,7 +5,6 @@
 @endsection
 
 @section('main')
-	<div class="intro">Frequent Asked Qustions</div>
 	<div class="box card">
 		<h3>Wie funktioniert PaderMeet?</h3>
       <p class="text-left">Klicke auf den Button und erfahre wo du heute um 20:00 Uhr hingehst</p>

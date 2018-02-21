@@ -1,7 +1,7 @@
-@extends('layout.masterNoLoad')
+@extends('layout.master')
 
 @section('loading')
-	@include('layout.components.svg.markerSVG')
+	@include('layout.components.svg.markerSVG', ['text' => \App\Match::totalMatchesToday() ])
 @endsection
 
 @section('main')
@@ -63,5 +63,4 @@
 @endsection
 
 @section('vue')
-<script>
 @endsection

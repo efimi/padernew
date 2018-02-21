@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/share', 'StatisticController@shared');
+Route::get('/click', 'StatisticController@click');
+
 Route::get('/unmatch', 'MatchesController@destroy');
 Route::get('/pinwall','PinController@show');
 Route::post('/pinwall','PinController@store');

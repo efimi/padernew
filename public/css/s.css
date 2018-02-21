@@ -9,6 +9,17 @@
     font-weight: 200;
     font-style: normal;
 }
+@font-face {
+    font-family: 'chunky';
+    src: url('../fonts/paderchunky.eot');
+    src: url('../fonts/paderchunky.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/paderchunky.woff2') format('woff2'),
+         url('../fonts/paderchunky.woff') format('woff'),
+         url('../fonts/paderchunky.ttf') format('truetype'),
+         url('../fonts/paderchunky.svg') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
 
 body {
 	font-family: 'Lato', sans-serif;

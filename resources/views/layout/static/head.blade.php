@@ -6,6 +6,17 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
+
+<!-- Sharing Site -->
+<meta property="og:site_name" content="PaderMeet"/>
+<meta property="og:title" content="PaderMeet - Die neue Treffapp für Paderborn!"/>
+<meta property="og:description" content="Mit PaderMeet lernst du ganz leicht neue Leute kennen! Ein Button, ein Klick"/>
+<meta property="og:image" content="{{url('/')}}/img/apple-touch-icon-180x180.png">
+<meta property="og:url" content="http://www.padermeet.de/share">
+<meta property="og:type" content="website"/>
+
+
 <meta name="viewport" content="width=device-width">
 
 <link rel="shortcut icon" href="{{url('/')}}//favicon.ico" type="image/x-icon" />
@@ -20,8 +31,4 @@
 <link rel="apple-touch-icon" sizes="180x180" href="{{url('/')}}/img/apple-touch-icon-180x180.png" />
 
 <link rel="stylesheet" href="{{url('/')}}/css/s.css">
-<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/normalize.css" />
-<link rel="stylesheet" href="{{url('/')}}/css/effect.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-<script src="{{url('/')}}/js/modernizr.custom.js"></script>
-<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>

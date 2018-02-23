@@ -2,14 +2,14 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Chat\Message;
+use App\Feedback;
 use App\History;
 use App\Match;
-use App\Feedback;
 use App\Pin;
 use Carbon\Carbon;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -50,9 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserSocial::class);
     }
-    public function pins()
+    public function messages()
     {
-        return $this->hasMany(Pin::class);
+        return $this->hasMany(Message::class);
     }
 
     /**

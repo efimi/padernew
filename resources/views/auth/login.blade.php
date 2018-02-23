@@ -74,24 +74,3 @@
 	  </div>
 	</div>
 @endsection
-
-@section('vue')
-<script>
-		var app = new Vue({
-			el: '#app',
-			data: {
-				showModal: false,
-				showLogin: false,
-			},
-			methods:{
-				toggleBasicModal(){
-					this.showModal = !this.showModal
-				},
-				toggleLoginModal(){
-					this.showLogin = !this.showLogin
-				}
-			}
-		});
-</script>
-
-@endsection		

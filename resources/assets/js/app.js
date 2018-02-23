@@ -1,10 +1,38 @@
-import Vue from 'vue';
-import Moment from 'moment';
-import InviteText from './components/InviteText.vue';
-import CountDownToday from './components/CountDownToday.vue';
-import LocationBox from './components/LocationBox.vue';
 
-new Vue({
-	el:'#app',
-	components: {InviteText, CountDownToday, LocationBox},
-});	
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+require('./bootstrap');
+
+window.Vue = require('vue');
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+Vue.component('chat', require('./components/chat/Chat.vue'));
+Vue.component('chat-messages', require('./components/chat/Messages.vue'));
+Vue.component('chat-message', require('./components/chat/Message.vue'));
+Vue.component('chat-users', require('./components/chat/Users.vue'));
+
+const app = new Vue({
+    el: '#app',
+    // for loginin vue
+    data:{
+    	showModal: false,
+		showLogin: false,
+    },
+    methods:{
+		toggleBasicModal(){
+			this.showModal = !this.showModal
+		},
+		toggleLoginModal(){
+			this.showLogin = !this.showLogin
+		}
+	}
+ });

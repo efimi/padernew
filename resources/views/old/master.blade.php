@@ -32,24 +32,9 @@
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="css/effect1.css" />
 	<script src="js/modernizr.custom.js"></script>
-	<style>
-		@font-face {
-		    font-family: 'paderchunky';
-		    src: url('fonts/paderchunky.eot');
-		    src: url('fonts/paderchunky.eot?#iefix') format('embedded-opentype'),
-		         url('fonts/paderchunky.woff2') format('woff2'),
-		         url('fonts/paderchunky.woff') format('woff'),
-		         url('fonts/paderchunky.ttf') format('truetype'),
-		         url('fonts/paderchunky.svg') format('svg');
-		    font-weight: 400;
-		    font-style: medium;
-		}
-	</style>
-
 
 </head>
 <body>
-	{{-- <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script> --}}
 	<div id="app">
 		<div class="">
 			<section class="">
@@ -58,7 +43,8 @@
 			</section>   
 	    </div>	
 	</div>
-    
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+
+<!-- vue and stuff -->
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

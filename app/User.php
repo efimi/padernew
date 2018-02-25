@@ -55,6 +55,18 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    public function todaysMatch()
+    {
+        return $this->matches()->whereDate('created_at', today())->first();
+    }
+    public function todaysGroupe()
+    {
+        return !empty($this->todaysMatch()) ? $this->todaysMatch()->participants() : null;
+    }
+    public function todaysMessages()
+    {
+        return $this->messages()->whereDate('created_at', today())->get();
+    }
     /**
      * Social Facebook id 
      // * for avatar http://graph.facebook.com/ /picture?type=square
@@ -85,7 +97,7 @@ class User extends Authenticatable
      * Antwortet auf die Frage: Der wievielte in der Matchreihenfolge ist dieser User?
      * @return [type] [description]
      */
-    public function matchedNumberToday()
+    public function matchedRangToday()
     {
         $location = $this->matchedLocation;
         $allmatches = $location->allUsedMatchesForLocationToday();
@@ -140,6 +152,7 @@ class User extends Authenticatable
             return 0;
         }
     }
+
     public function isAllowedToClick()
     {
         $noMatchExsitsToday = empty(Match::matchedTodayFor($this));

@@ -15,7 +15,9 @@ Route::get('/click', 'StatisticController@click');
 
 Route::get('/unmatch', 'MatchesController@destroy');
 
+Route::get('/yodel', 'Chat\ChatController@yodel');
 Route::get('/chat', 'Chat\ChatController@index');
+Route::get('/pinwall', 'Chat\ChatController@index');
 Route::get('/chat/messages', 'Chat\ChatMessageController@index');
 Route::post('/chat/messages', 'Chat\ChatMessageController@store');
 

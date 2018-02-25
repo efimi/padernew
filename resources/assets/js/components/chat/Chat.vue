@@ -45,7 +45,8 @@
 					id: tempId,
 					body: this.body, 
 					created_at: moment().utc(0).format('YYYY-MM-DD HH:mm:ss'),
-					selfOwned: true, 
+					selfOwned: true,
+					pinwallId: Laravel.user.matchedLocationId, 
 					user: {
 						name: Laravel.user.name,
 					}
@@ -61,7 +62,8 @@
 				Bus.$emit('message.added', tempMessage)
 
 				axios.post('/chat/messages', {
-					body: this.body.trim()
+					body: this.body.trim(),
+					locationId: Laravel.user.matchedLocationId
 				}).catch(() => {
 					this.body = this.bodyBackedUp
 					Bus.$emit('message.removed', tempMessage)

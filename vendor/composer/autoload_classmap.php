@@ -9,6 +9,7 @@ return array(
     'App\\Chat\\Message' => $baseDir . '/app/Chat/Message.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Day' => $baseDir . '/app/Day.php',
+    'App\\Events\\Chat\\MessageCreated' => $baseDir . '/app/Events/Chat/MessageCreated.php',
     'App\\Events\\Match\\LocationWasFilled' => $baseDir . '/app/Events/Match/LocationWasFilled.php',
     'App\\Events\\Match\\UserWasMatchedToLocation' => $baseDir . '/app/Events/Match/UserWasMatchedToLocation.php',
     'App\\Events\\PinMessage' => $baseDir . '/app/Events/PinMessage.php',

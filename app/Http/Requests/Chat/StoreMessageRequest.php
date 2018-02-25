@@ -25,6 +25,7 @@ class StoreMessageRequest extends FormRequest
     {
         return [
             'body' => 'required|max:1000',
+            'locationId' => 'required',
         ];
     }
 }

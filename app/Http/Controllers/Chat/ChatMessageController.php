@@ -10,17 +10,27 @@ use Illuminate\Http\Request;
 
 class ChatMessageController extends Controller
 {
-    //
+    /**
+     * Zeige alle messages von heute an.
+     * @return [type] [description]
+     */
     public function index()
-    {
-    	$messages = Message::with(['user'])->latest()->limit(20)->get();
-    	return response()->json($messages,200);
+    {   
+        if (auth()->user()->hasLocationAlready()) {
+            $location = auth()->user()->todaysMatch()->location;
+            $messages = Message::with(['user'])->whereDate('created_at', today())
+                        ->where('location_id', $location->id)->latest()->get();
+            return response()->json($messages,200);
+        }
+        return;
+    	
     }
 
     public function store(StoreMessageRequest $request)
     {
     	$message = $request->user()->messages()->create([
-    		'body' => $request->body
+    		'body' => $request->body,
+            'location_id' => $request->locationId,
     	]);
 
         broadcast(new MessageCreated($message))->toOthers();

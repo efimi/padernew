@@ -400,6 +400,7 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'App\\Chat\\Message' => __DIR__ . '/../..' . '/app/Chat/Message.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Day' => __DIR__ . '/../..' . '/app/Day.php',
+        'App\\Events\\Chat\\MessageCreated' => __DIR__ . '/../..' . '/app/Events/Chat/MessageCreated.php',
         'App\\Events\\Match\\LocationWasFilled' => __DIR__ . '/../..' . '/app/Events/Match/LocationWasFilled.php',
         'App\\Events\\Match\\UserWasMatchedToLocation' => __DIR__ . '/../..' . '/app/Events/Match/UserWasMatchedToLocation.php',
         'App\\Events\\PinMessage' => __DIR__ . '/../..' . '/app/Events/PinMessage.php',

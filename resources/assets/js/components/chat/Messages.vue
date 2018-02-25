@@ -25,7 +25,9 @@
 			});
 
 			Bus.$on('message.added', (message) => {
-				this.messages.unshift(message);
+				if(message.pinwallId === Laravel.user.matchedLocationId){
+					this.messages.unshift(message);
+				}
 
 				if(message.selfOwned){
 					// to the ref="messages"

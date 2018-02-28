@@ -14,6 +14,14 @@ Route::get('/share', 'StatisticController@shared');
 Route::get('/click', 'StatisticController@click');
 
 Route::get('/unmatch', 'MatchesController@destroy');
+Route::get('/geolocation', function(){
+    return view('geolocation');
+});
+Route::get('/geolocation/api', function(){
+
+    return request()->json();
+});
+
 
 Route::get('/yodel', 'Chat\ChatController@yodel');
 Route::get('/chat', 'Chat\ChatController@index');

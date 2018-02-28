@@ -33,7 +33,6 @@
 <link rel="stylesheet" href="{{url('/')}}/css/s.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-@if( auth()->check() && auth()->user()->hasLocationAlready())
 <!--  Ajax Scripts-->
 <script>
 	window.Laravel = {!! json_encode([
@@ -42,17 +41,17 @@
 			'authenticated' => auth()->check(),
 			'id' => auth()->check() ? auth()->user()->id : null,
 			'name' => auth()->check() ? auth()->user()->name : null,
-				'matchedLocationId' => auth()->check() ? auth()->user()->matchedLocation()->id : null,
+			'matchedLocationId' => auth()->check() ? auth()->user()->matchedLocationId() : null,
 		], 
 		'keys' => [
 			'pusher' => config('broadcasting.connections.pusher.key')
 		]
 	]) !!};
 </script>
-@endif
+
 
 <!--  OneSignal Scripts-->
-<link rel="manifest" href="/manifest.json" />
+{{-- <link rel="manifest" href="/manifest.json" />
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
   var OneSignal = window.OneSignal || [];
@@ -65,4 +64,4 @@
       },
     });
   });
-</script>
+</script> --}}

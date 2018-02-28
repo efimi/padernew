@@ -20,20 +20,11 @@ Vue.component('chat', require('./components/chat/Chat.vue'));
 Vue.component('chat-messages', require('./components/chat/Messages.vue'));
 Vue.component('chat-message', require('./components/chat/Message.vue'));
 Vue.component('chat-users', require('./components/chat/Users.vue'));
+Vue.component('mod', require('./components/Modal.vue'));
+Vue.component('geo', require('./components/Geolocation.vue'));
 
 const app = new Vue({
     el: '#app',
     // for loginin vue
-    data:{
-    	showModal: false,
-		showLogin: false,
-    },
-    methods:{
-		toggleBasicModal(){
-			this.showModal = !this.showModal
-		},
-		toggleLoginModal(){
-			this.showLogin = !this.showLogin
-		}
-	}
+    
  });

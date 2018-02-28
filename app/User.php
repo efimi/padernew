@@ -136,6 +136,15 @@ class User extends Authenticatable
         return empty($match) ? null : Location::find($match->location_id);
     }
     /**
+     * Returns matchedLocaitonId
+     * @return Location 
+     */
+    public function matchedLocationId()
+    {   
+        $match = Match::matchedTodayFor($this);
+        return empty($match) ? null : $match->location_id;
+    }
+    /**
      * Tells how many minutes needed till pressing is allowed
      * @param  integer
      * @return int

@@ -2,7 +2,7 @@
 	<div>
 		<p>Click the button to get your coordinates.</p>
 		<button @click="getLocation">Try It</button>
-		<p id="demo" v-text="" >}</p>
+		<p id="demo" v-text="text"></p>
 	</div>
 </template>
 
@@ -10,7 +10,7 @@
 	export default {
 		data(){
 			return {
-				text: ''
+				text: 'Hier wird deine Latitude und Longitude angezeigt.'
 			}
 		},
 		methods: {

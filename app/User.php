@@ -2,14 +2,14 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Chat\Message;
+use App\Feedback;
 use App\History;
 use App\Match;
-use App\Feedback;
 use App\Pin;
 use Carbon\Carbon;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -50,11 +50,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserSocial::class);
     }
-    public function pins()
+    public function messages()
     {
-        return $this->hasMany(Pin::class);
+        return $this->hasMany(Message::class);
     }
 
+    public function todaysMatch()
+    {
+        return $this->matches()->whereDate('created_at', today())->first();
+    }
+    public function todaysGroupe()
+    {
+        return !empty($this->todaysMatch()) ? $this->todaysMatch()->participants() : null;
+    }
+    public function todaysMessages()
+    {
+        return $this->messages()->whereDate('created_at', today())->get();
+    }
     /**
      * Social Facebook id 
      // * for avatar http://graph.facebook.com/ /picture?type=square
@@ -85,7 +97,7 @@ class User extends Authenticatable
      * Antwortet auf die Frage: Der wievielte in der Matchreihenfolge ist dieser User?
      * @return [type] [description]
      */
-    public function matchedNumberToday()
+    public function matchedRangToday()
     {
         $location = $this->matchedLocation;
         $allmatches = $location->allUsedMatchesForLocationToday();
@@ -124,6 +136,15 @@ class User extends Authenticatable
         return empty($match) ? null : Location::find($match->location_id);
     }
     /**
+     * Returns matchedLocaitonId
+     * @return Location 
+     */
+    public function matchedLocationId()
+    {   
+        $match = Match::matchedTodayFor($this);
+        return empty($match) ? null : $match->location_id;
+    }
+    /**
      * Tells how many minutes needed till pressing is allowed
      * @param  integer
      * @return int
@@ -140,6 +161,7 @@ class User extends Authenticatable
             return 0;
         }
     }
+
     public function isAllowedToClick()
     {
         $noMatchExsitsToday = empty(Match::matchedTodayFor($this));

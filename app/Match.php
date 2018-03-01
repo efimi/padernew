@@ -48,9 +48,14 @@ class Match extends Model
      */
     public function participants()
     {   
-        $participants = Match::whereDate('created_at', $this->created_at)->where('location_id', $this->location_id)->get();
-
-        // dd($participclants);
+        // $date = explode(" ", $this->created_at)[0];
+        $date = $this->created_at;
+        $matches = Match::whereDate('created_at', $date )
+                ->where('location_id', $this->location_id)->get();
+        $participants = collect([]);
+        foreach ($matches as $m) {
+           $participants->push($m->user);
+        }
         return $participants;
     }
     /**

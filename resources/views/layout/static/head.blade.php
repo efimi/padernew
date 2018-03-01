@@ -32,3 +32,36 @@
 
 <link rel="stylesheet" href="{{url('/')}}/css/s.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+<!--  Ajax Scripts-->
+<script>
+	window.Laravel = {!! json_encode([
+		'csrfToken' => csrf_Token(),
+		'user' => [
+			'authenticated' => auth()->check(),
+			'id' => auth()->check() ? auth()->user()->id : null,
+			'name' => auth()->check() ? auth()->user()->name : null,
+			'matchedLocationId' => auth()->check() ? auth()->user()->matchedLocationId() : null,
+		], 
+		'keys' => [
+			'pusher' => config('broadcasting.connections.pusher.key')
+		]
+	]) !!};
+</script>
+
+
+<!--  OneSignal Scripts-->
+{{-- <link rel="manifest" href="/manifest.json" />
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "2e680437-eebb-4b16-b97b-ee10e8fbcf1b",
+      autoRegister: false,
+      notifyButton: {
+        enable: true,
+      },
+    });
+  });
+</script> --}}

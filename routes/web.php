@@ -14,8 +14,20 @@ Route::get('/share', 'StatisticController@shared');
 Route::get('/click', 'StatisticController@click');
 
 Route::get('/unmatch', 'MatchesController@destroy');
-Route::get('/pinwall','PinController@show');
-Route::post('/pinwall','PinController@store');
+Route::get('/geolocation', function(){
+    return view('geolocation');
+});
+Route::get('/geolocation/api', function(){
+
+    return request()->json();
+});
+
+
+Route::get('/yodel', 'Chat\ChatController@yodel');
+Route::get('/chat', 'Chat\ChatController@index');
+Route::get('/pinwall', 'Chat\ChatController@index');
+Route::get('/chat/messages', 'Chat\ChatMessageController@index');
+Route::post('/chat/messages', 'Chat\ChatMessageController@store');
 
 Route::get('/dashboard','HomeController@index');
 

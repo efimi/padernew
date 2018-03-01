@@ -67,6 +67,7 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         ),
         'P' => 
         array (
+            'Pusher\\' => 7,
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
@@ -217,6 +218,10 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
+        ),
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
         ),
         'Psy\\' => 
         array (
@@ -392,10 +397,13 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
     );
 
     public static $classMap = array (
+        'App\\Chat\\Message' => __DIR__ . '/../..' . '/app/Chat/Message.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Day' => __DIR__ . '/../..' . '/app/Day.php',
+        'App\\Events\\Chat\\MessageCreated' => __DIR__ . '/../..' . '/app/Events/Chat/MessageCreated.php',
         'App\\Events\\Match\\LocationWasFilled' => __DIR__ . '/../..' . '/app/Events/Match/LocationWasFilled.php',
         'App\\Events\\Match\\UserWasMatchedToLocation' => __DIR__ . '/../..' . '/app/Events/Match/UserWasMatchedToLocation.php',
+        'App\\Events\\PinMessage' => __DIR__ . '/../..' . '/app/Events/PinMessage.php',
         'App\\Events\\Social\\FacebookAccountWasLinked' => __DIR__ . '/../..' . '/app/Events/Social/FacebookAccountWasLinked.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Feedback' => __DIR__ . '/../..' . '/app/Feedback.php',
@@ -405,6 +413,8 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\SocialLoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/SocialLoginController.php',
+        'App\\Http\\Controllers\\Chat\\ChatController' => __DIR__ . '/../..' . '/app/Http/Controllers/Chat/ChatController.php',
+        'App\\Http\\Controllers\\Chat\\ChatMessageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Chat/ChatMessageController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\FeedbackController' => __DIR__ . '/../..' . '/app/Http/Controllers/FeedbackController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
@@ -420,6 +430,7 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\Chat\\StoreMessageRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Chat/StoreMessageRequest.php',
         'App\\Listeners\\Match\\SendLocationFilledEmail' => __DIR__ . '/../..' . '/app/Listeners/Match/SendLocationFilledEmail.php',
         'App\\Listeners\\Match\\SendUserMatchedToLocationEmail' => __DIR__ . '/../..' . '/app/Listeners/Match/SendUserMatchedToLocationEmail.php',
         'App\\Listeners\\Social\\SendFacebookLinkedEmail' => __DIR__ . '/../..' . '/app/Listeners/Social/SendFacebookLinkedEmail.php',
@@ -3102,6 +3113,9 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/NoopChecker.php',
+        'Pusher\\Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Pusher.php',
+        'Pusher\\PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherException.php',
+        'Pusher\\PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInstance.php',
         'Ramsey\\Uuid\\BinaryUtils' => __DIR__ . '/..' . '/ramsey/uuid/src/BinaryUtils.php',
         'Ramsey\\Uuid\\Builder\\DefaultUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DefaultUuidBuilder.php',
         'Ramsey\\Uuid\\Builder\\DegradedUuidBuilder' => __DIR__ . '/..' . '/ramsey/uuid/src/Builder/DegradedUuidBuilder.php',

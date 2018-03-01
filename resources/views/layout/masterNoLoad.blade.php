@@ -12,6 +12,8 @@
 					<p>Made with ❤️</p>
 				</footer>
 		</div>
-		@yield('vue')
+	<!-- vue and stuff -->
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>

@@ -10,20 +10,23 @@
 	export default {
 		data(){
 			return {
-				text: 'Hier wird deine Latitude und Longitude angezeigt.'
+				text: 'Hier wird deine Latitude und Longitude angezeigt.',
+				lat: '',
+				lng: ''
 			}
 		},
 		methods: {
 		  	getLocation() {
-			    if (navigator.geolocation) {
-			        navigator.geolocation.getCurrentPosition(this.showPosition);
+			    if (window.navigator.geolocation) {
+			        window.navigator.geolocation.getCurrentPosition(this.showPosition);
 			    } else { 
 			        text = "Geolocation is not supported by this browser.";
 			    }
 			},
 			showPosition(position) {
-			this.text = "Latitude: " + position.coords.latitude + 
-			" | Longitude: " + position.coords.longitude;
+				this.lat = position.coords.latitude,
+				this.lng = position.coords.longitude,
+				this.text = "deine Location befindet sich in: Latitude:" + this.lat + " und Longitude: " + this.lng;
 			} 
 
 		}

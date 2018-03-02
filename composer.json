@@ -16,7 +16,8 @@
         "laravelcollective/html": "^5.4.0",
         "pusher/pusher-php-server": "^3.0",
         "simplesoftwareio/simple-qrcode": "~2",
-        "socialiteproviders/instagram": "^3.0"
+        "socialiteproviders/instagram": "^3.0",
+        "tymon/jwt-auth": "^0.5.12"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

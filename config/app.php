@@ -170,6 +170,7 @@ return [
         Codecourse\Notify\NotifyServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         // \SocialiteProviders\Manager\ServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -232,6 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,  
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ],
 
 ];

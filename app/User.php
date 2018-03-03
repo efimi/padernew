@@ -5,11 +5,14 @@ namespace App;
 use App\Chat\Message;
 use App\Feedback;
 use App\History;
+use App\Location;
 use App\Match;
 use App\Pin;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
+use Faker\Generator as Faker;
 
 class User extends Authenticatable
 {
@@ -174,5 +177,19 @@ class User extends Authenticatable
         $user->email = 'test@test.de';
         $user->password = 'rein';
         $user->save();
+    }
+    public static function makeFakeUserAndMatch(){
+        $faker = new Faker;
+        $user = User::create([
+            'name' => 'Pader'. $faker->firstName,
+            'email' => 'paderkarl@padermeet.de',
+            'remember_token' => str_random(10),
+        ]);
+        $location = Location::getLocationWithSpaceFor(1);
+        // save in DB
+        History::makeNewEntry($user, $location, 1);
+        Match::makeMatch($user, $location, 1);
+        return $location;
+        
     }
 }

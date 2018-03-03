@@ -46,7 +46,7 @@ class LocationsController extends Controller
         $location = Location::getLocationWithSpaceFor($amount);
         // save in DB
         History::makeNewEntry(Auth::user(), $location, $amount);
-        // Match::makeMatch(Auth::user(), $location, $amount);
+        Match::makeMatch(Auth::user(), $location, $amount);
         return view('result', compact('location'));
     }
     public function getLocationApi(Request $request)

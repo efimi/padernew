@@ -29,6 +29,7 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\LocationsController' => $baseDir . '/app/Http/Controllers/LocationsController.php',
     'App\\Http\\Controllers\\MatchesController' => $baseDir . '/app/Http/Controllers/MatchesController.php',
+    'App\\Http\\Controllers\\PaderGuestController' => $baseDir . '/app/Http/Controllers/PaderGuestController.php',
     'App\\Http\\Controllers\\PinController' => $baseDir . '/app/Http/Controllers/PinController.php',
     'App\\Http\\Controllers\\QRCodeController' => $baseDir . '/app/Http/Controllers/QRCodeController.php',
     'App\\Http\\Controllers\\StatisticController' => $baseDir . '/app/Http/Controllers/StatisticController.php',

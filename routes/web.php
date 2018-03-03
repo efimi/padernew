@@ -10,6 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/guest', 'PaderGuestController@index');
+Route::get('/guestResult', 'PaderGuestController@guestResult');
+
+
 Route::get('/share', 'StatisticController@shared');
 Route::get('/click', 'StatisticController@click');
 

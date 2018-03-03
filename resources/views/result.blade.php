@@ -35,10 +35,10 @@
 	</a>		
 			
 	{{-- <small class="box item">Du willst hier hin??? 😃</small> --}}
-	<small class="box item">Bestätige noch kurz 👇 dass du hin gehst!😘</small>
+	<small class="box item"> Schau dir mal die Pinnwand 👇 von {{$location->name}} an 😯</small>	
 	<div class="button-area box item">
-		<a href="/confirmThatICome" class="btn-middle shadow">		
-				<span>Super, da geht ich hin!✌️</span>
+		<a href="/pinwall" class="btn-middle shadow">		
+				<span>📌 Die Pinnwand 📋✌️</span>
 		</a>
 	</div>
 	{{-- <small class="box item">Für weitere Infos zu {{$location->name}} clicke <a href="{{$location->website}}">hier</a>

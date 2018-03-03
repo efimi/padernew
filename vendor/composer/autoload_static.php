@@ -444,6 +444,7 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LocationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/LocationsController.php',
         'App\\Http\\Controllers\\MatchesController' => __DIR__ . '/../..' . '/app/Http/Controllers/MatchesController.php',
+        'App\\Http\\Controllers\\PaderGuestController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaderGuestController.php',
         'App\\Http\\Controllers\\PinController' => __DIR__ . '/../..' . '/app/Http/Controllers/PinController.php',
         'App\\Http\\Controllers\\QRCodeController' => __DIR__ . '/../..' . '/app/Http/Controllers/QRCodeController.php',
         'App\\Http\\Controllers\\StatisticController' => __DIR__ . '/../..' . '/app/Http/Controllers/StatisticController.php',

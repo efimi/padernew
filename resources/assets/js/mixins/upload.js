@@ -23,8 +23,8 @@ export default {
 				return Promise.resolve(response)
 			}).catch((error) => {
 				this.uploading = false
-				
-				return Promise.reject(error)
+				console.log(error.response)
+				// return Promise.reject(error)
 			})
 		},
 		packageUpload (e) {

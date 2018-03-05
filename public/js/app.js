@@ -67724,8 +67724,8 @@ if (false) {
 				return Promise.resolve(response);
 			}).catch(function (error) {
 				_this.uploading = false;
-
-				return Promise.reject(error);
+				console.log(error.response);
+				// return Promise.reject(error)
 			});
 		},
 		packageUpload: function packageUpload(e) {

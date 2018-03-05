@@ -17,6 +17,7 @@ return array(
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Feedback' => $baseDir . '/app/Feedback.php',
     'App\\History' => $baseDir . '/app/History.php',
+    'App\\Http\\Controllers\\Account\\AccountController' => $baseDir . '/app/Http/Controllers/Account/AccountController.php',
     'App\\Http\\Controllers\\Account\\AvatarController' => $baseDir . '/app/Http/Controllers/Account/AvatarController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',

@@ -5,12 +5,12 @@ export default {
 		},
 		sendAs: {
 			type: String,
-			default: 'file', // or 'image'
+			default: 'file',
 		}
 	},
 	data () {
 		return {
-			uploading: true
+			uploading: false
 		}
 	},
 	methods: {
@@ -23,8 +23,8 @@ export default {
 				return Promise.resolve(response)
 			}).catch((error) => {
 				this.uploading = false
-				console.log(error.response)
-				// return Promise.reject(error)
+				// console.log(error.response)
+				return Promise.reject(error)
 			})
 		},
 		packageUpload (e) {

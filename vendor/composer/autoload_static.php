@@ -454,6 +454,7 @@ class ComposerStaticInit01cc90a7873f79f2886b7411d3748132
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Feedback' => __DIR__ . '/../..' . '/app/Feedback.php',
         'App\\History' => __DIR__ . '/../..' . '/app/History.php',
+        'App\\Http\\Controllers\\Account\\AccountController' => __DIR__ . '/../..' . '/app/Http/Controllers/Account/AccountController.php',
         'App\\Http\\Controllers\\Account\\AvatarController' => __DIR__ . '/../..' . '/app/Http/Controllers/Account/AvatarController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',

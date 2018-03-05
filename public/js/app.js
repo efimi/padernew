@@ -67593,7 +67593,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.upload card shadow{\n\tdisplay: flex;\n\tflex-direction: column;\n}\n.has-error{\n\tborder-color:red;\n}\n", ""]);
 
 // exports
 
@@ -67605,6 +67605,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_upload__ = __webpack_require__(210);
+//
 //
 //
 //
@@ -67642,7 +67643,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		fileChange: function fileChange(e) {
-			this.upload(e);
+			var _this = this;
+
+			this.upload(e).then(function (response) {
+				console.log(response.data.data);
+				_this.avatar = response.data.data;
+			}).catch(function (error) {
+				if (error.response.status === 422) {
+					_this.errors = error.response.data;
+					return;
+				}
+
+				_this.errors = "Irgendwie ist was schief gegangen... Versuche es nochmal.";
+			});
 		}
 	}
 });
@@ -67655,33 +67668,46 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "avatar" } }),
-      _vm._v(" "),
+  return _c("div", { staticClass: "upload" }, [
+    _c(
+      "div",
+      {
+        staticClass: "form-group",
+        class: { "has-error": _vm.errors[this.sendAs] }
+      },
+      [
+        _c("label", { attrs: { for: _vm.sendAs } }, [_vm._v("Avatar")]),
+        _vm._v(" "),
+        _vm.uploading
+          ? _c("div", [_vm._v("Prozess...")])
+          : _c("input", {
+              staticClass: "btn-login",
+              attrs: { type: "file", name: _vm.sendAs },
+              on: { change: _vm.fileChange }
+            }),
+        _vm._v(" "),
+        _vm.errors[this.sendAs]
+          ? _c("div", { staticClass: "help-block" }, [
+              _vm._v("\n\t\t\t" + _vm._s(_vm.errors[this.sendAs][0]) + "\n\t\t")
+            ])
+          : _vm._e()
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", [
       _c("input", {
-        attrs: { type: "file", name: _vm.sendAs },
-        on: { change: _vm.fileChange }
+        attrs: { type: "hidden", name: "avatar_id" },
+        domProps: { value: _vm.avatar.id }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "help-block" }, [_vm._v("\n\t\t\tHelp\n\t\t")])
-    ]),
-    _vm._v(" "),
-    _vm._m(0)
+      _c("img", {
+        staticClass: "avatar",
+        attrs: { alt: "Current avatar", src: _vm.avatar.path }
+      })
+    ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("input", { attrs: { type: "hidden", name: "avatar_id" } }),
-      _vm._v(" "),
-      _c("img", { staticClass: "avatar", attrs: { alt: "Current avatar" } })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -67703,12 +67729,12 @@ if (false) {
 		},
 		sendAs: {
 			type: String,
-			default: 'file' // or 'image'
+			default: 'file'
 		}
 	},
 	data: function data() {
 		return {
-			uploading: true
+			uploading: false
 		};
 	},
 
@@ -67724,8 +67750,8 @@ if (false) {
 				return Promise.resolve(response);
 			}).catch(function (error) {
 				_this.uploading = false;
-				console.log(error.response);
-				// return Promise.reject(error)
+				// console.log(error.response)
+				return Promise.reject(error);
 			});
 		},
 		packageUpload: function packageUpload(e) {

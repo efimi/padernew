@@ -29,13 +29,14 @@ class AvatarController extends Controller
 
 		$image = new Image;
         $image->path = $path;
+        $image->user()->associate($request->user());
         $image->save();
 
 
 		return response([
 			'data' => [
 				'id' => $image->id,
-				'path' => $image->path
+				'path' => $image->path(),
 			]
 		], 200);
 	}

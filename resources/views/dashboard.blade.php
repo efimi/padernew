@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.masterNoLoad')
 
 @section('loading')
 	@include('layout.components.svg.markerSVG', ['text' => \App\Match::totalMatchesToday() ])
@@ -27,7 +27,23 @@
 		<div class="dright">
 
 			<div class="settings">
-				 <avatar-upload endpoint="{{ route('account.avatar.store') }}" send-as="image" current-avatar="{{ Auth::user()->avatarPath() }}"></avatar-upload>
+				<form action="{{ route('account.update') }}" method="post" class="card">
+		            {{ csrf_field() }}
+		            {{ method_field('PATCH') }}
+	            <div class="form-group">
+					 <avatar-upload endpoint="{{ route('account.avatar.store') }}" send-as="image" current-avatar="{{ Auth::user()->avatarPath() }}"></avatar-upload>
+	            </div>
+		        <div class="form-group">
+	              <label for="name">Name</label>
+	              <input type="text" name="name" id="name" class="form-control" value="{{ old('name') ?? Auth::user()->name }}">
+	            </div>
+
+	            <div class="form-group">
+	              <button type="submit" class="btn btn-login">übernehmen</button>
+	            </div>
+	          </form>
+
+	          
 			</div>
 			<div class="match-history">
 				<div class="h-table">

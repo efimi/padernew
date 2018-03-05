@@ -27,6 +27,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    'force_https' => env('FORCE_HTTPS', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -171,6 +172,8 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         // \SocialiteProviders\Manager\ServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -234,6 +237,8 @@ return [
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,  
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
+
     ],
 
 ];

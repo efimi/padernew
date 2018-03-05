@@ -13,6 +13,7 @@
 
 Route::get('/guest', 'PaderGuestController@index');
 Route::get('/guestResult', 'PaderGuestController@guestResult');
+Route::post('/registerUser', 'PaderGuestController@registerUser')->name('registerNewUser');
 
 
 Route::get('/share', 'StatisticController@shared');

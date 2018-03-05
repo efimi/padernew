@@ -43,9 +43,9 @@ class SocialLoginController extends Controller
     	}
 
     	/**
-    	 * login this user, remember false
+    	 * login this user, remember true
     	 */
-    	Auth::login($user, false);
+    	Auth::login($user, true);
 
     	return redirect()->intended();
 

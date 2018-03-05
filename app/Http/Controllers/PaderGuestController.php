@@ -4,25 +4,39 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use Collective\Html\request;
-// use Illuminate\Http\Request;
+use Jenssegers\Agent\Agent;
 
 class PaderGuestController extends Controller
 {
     //
     public function index()
-    {
-        if(!Auth::check()){
-            $user = User::create([
-                'name' => 'Gast', 
-                'email' => 'info@padermeet.de'
-            ]);
-            Auth::login($user, true);
-        }
-    	return view('guest');
-    }
-    public function guestResult()
-    {	
+    {      
 
-    	return view('guestResult', compact('location'));
+        if(!Auth::check()){
+                $user = User::create([
+                    'name' => 'Gast', 
+                    'email' => 'guest@guest.de'
+                ]);
+                Auth::login($user, true);
+            }
+            return view('guest');
+        // $agent = new Agent();
+        // if($agent->isMobile() || $agent->isPhone()){
+        //     if(!Auth::check()){
+        //         $user = User::create([
+        //             'name' => 'Gast', 
+        //             'email' => 'guest@guest.de'
+        //         ]);
+        //         Auth::login($user, true);
+        //     }
+        // 	return view('guest');
+        // } else {
+        //     return redirect()->to('/');
+        // }
+    }
+    public function registerUser(Request $request)
+    {	
+    	dd(session());
+
     }
 }

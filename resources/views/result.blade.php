@@ -11,7 +11,7 @@
 	<div class="logo box">
 		<a href="#"><img src="img/logo.png" alt=""></a>	
 	</div>
-	
+	{{Auth::user()->session()}}
 	<div class="intro item">
 		<h1>🎊</h1>
 		Schau mal was 📍 wir für dich gefunden haben

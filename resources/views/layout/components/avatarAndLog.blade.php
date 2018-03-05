@@ -2,7 +2,7 @@
 <div class="split-row">
 		<div class="left">
 			<a href="/dashboard">
-			<img class="avatar shadow" src="{{auth()->user()->avatar()}}" alt="">
+			<img class="avatar shadow" src="{{auth()->user()->avatarPath()}}" alt="">
 			<span>{{ auth()->user()->name}}</span>
 			</a>
 		</div>

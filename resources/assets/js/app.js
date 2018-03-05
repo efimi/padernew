@@ -23,6 +23,7 @@ Vue.component('chat-users', require('./components/chat/Users.vue'));
 Vue.component('mod', require('./components/Modal.vue'));
 Vue.component('geo', require('./components/Geolocation.vue'));
 Vue.component('logo', require('./components/Logo.vue'));
+Vue.component('avatar-upload', require('./components/AvatarUpload.vue'));
 
 const app = new Vue({
     el: '#app',

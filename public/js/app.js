@@ -28464,6 +28464,7 @@ Vue.component('chat-users', __webpack_require__(182));
 Vue.component('mod', __webpack_require__(188));
 Vue.component('geo', __webpack_require__(194));
 Vue.component('logo', __webpack_require__(199));
+Vue.component('avatar-upload', __webpack_require__(205));
 
 var app = new Vue({
   el: '#app'
@@ -67505,6 +67506,235 @@ if (false) {
 /***/ (function(module, exports) {
 
 module.exports = "/images/logo.png?e751092a4df90e5e7f47af055fb6bbc9";
+
+/***/ }),
+/* 205 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(206)
+}
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(208)
+/* template */
+var __vue_template__ = __webpack_require__(209)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/AvatarUpload.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-323eb971", Component.options)
+  } else {
+    hotAPI.reload("data-v-323eb971", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 206 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(207);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("65adc328", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-323eb971\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./AvatarUpload.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-323eb971\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./AvatarUpload.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 207 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 208 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_upload__ = __webpack_require__(210);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['currentAvatar'],
+	data: function data() {
+		return {
+			errors: [],
+			avatar: {
+				id: null,
+				path: this.currentAvatar
+			}
+		};
+	},
+
+	mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_upload__["a" /* default */]],
+
+	methods: {
+		fileChange: function fileChange(e) {
+			this.upload(e);
+		}
+	}
+});
+
+/***/ }),
+/* 209 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "avatar" } }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "file", name: _vm.sendAs },
+        on: { change: _vm.fileChange }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "help-block" }, [_vm._v("\n\t\t\tHelp\n\t\t")])
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("input", { attrs: { type: "hidden", name: "avatar_id" } }),
+      _vm._v(" "),
+      _c("img", { staticClass: "avatar", attrs: { alt: "Current avatar" } })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-323eb971", module.exports)
+  }
+}
+
+/***/ }),
+/* 210 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+	props: {
+		endpoint: {
+			type: String
+		},
+		sendAs: {
+			type: String,
+			default: 'file' // or 'image'
+		}
+	},
+	data: function data() {
+		return {
+			uploading: true
+		};
+	},
+
+	methods: {
+		upload: function upload(e) {
+			var _this = this;
+
+			this.uploading = true;
+
+			return axios.post(this.endpoint, this.packageUpload(e)).then(function (response) {
+				_this.uploading = false;
+
+				return Promise.resolve(response);
+			}).catch(function (error) {
+				_this.uploading = false;
+
+				return Promise.reject(error);
+			});
+		},
+		packageUpload: function packageUpload(e) {
+			var fileData = new FormData();
+			fileData.append(this.sendAs, e.target.files[0]);
+			return fileData;
+		}
+	}
+});
 
 /***/ })
 /******/ ]);

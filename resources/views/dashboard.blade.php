@@ -26,7 +26,9 @@
 		</div>
 		<div class="dright">
 
-			<div class="settings"></div>
+			<div class="settings">
+				 <avatar-upload endpoint="{{ route('account.avatar.store') }}" send-as="image" current-avatar="{{ Auth::user()->avatarPath() }}"></avatar-upload>
+			</div>
 			<div class="match-history">
 				<div class="h-table">
 					<div class="h-row">
@@ -48,7 +50,7 @@
 								@foreach($match->participants() as $user)
 									<div class="left">
 										<a href="#">
-										<img class="avatar shadow" src="{{$user->avatar()}}" alt="">
+										<img class="avatar shadow" src="{{$user->avatarPath()}}" alt="">
 										{{-- <span>{{$part->name}}</span> --}}
 										</a>
 									</div>

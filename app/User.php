@@ -83,18 +83,27 @@ class User extends Authenticatable
         }
         return $social->social_id;
     }
+     public function avatar()
+    {
+        return $this->hasOne(Image::class, 'id', 'avatar_id');
+    }
     /**
      * liefert den Pfad des Avatars.
      * @return [type] [description]
      */
-    public function avatar()
+    public function avatarPath()
     {   
         if(!empty($this->facebook_id())){
             return "http://graph.facebook.com/" . $this->facebook_id() ."/picture?type=square";
         }
-        else {
-            return "img/avatar.png";
+        if (!$this->avatar_id) {
+            return"img/avatarDummy.png";
         }
+
+        return $this->avatar->path();
+       
+
+            return ;
     }
     /**
      * Antwortet auf die Frage: Der wievielte in der Matchreihenfolge ist dieser User?

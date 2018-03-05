@@ -8,7 +8,7 @@
 			@foreach($pins as $pin)
 				<div class="pinpost">
 					<div class="avatarbox">
-						<img class="avatar shadow" src="{{ $pin->user->avatar() }}" alt="">
+						<img class="avatar shadow" src="{{ $pin->user->avatarPath() }}" alt="">
 						<small>{{$pin->created_at->diffForHumans()}}</small>
 					</div> 
 					<div class="pintext">

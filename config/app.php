@@ -173,7 +173,7 @@ return [
         // \SocialiteProviders\Manager\ServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
-
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -238,6 +238,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,  
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 

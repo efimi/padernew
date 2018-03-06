@@ -44,7 +44,7 @@
 				return {
 					id: tempId,
 					body: this.body, 
-					created_at: moment().utc(0).format('YYYY-MM-DD HH:mm:ss'),
+					created_at: moment().zone('+0100').utc().format('YYYY-MM-DD HH:mm:ss'),
 					selfOwned: true,
 					pinwallId: Laravel.user.matchedLocationId, 
 					user: {

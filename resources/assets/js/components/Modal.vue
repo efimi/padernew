@@ -19,18 +19,15 @@
 </template>
 
 <script>
-	import VModal from 'vue-js-modal'
-	Vue.use(VModal)
+
 	export default {
 		mounted(){
 			this.show()
 		},
 		methods: {
 		  show () {
-		    this.$modal.show('mymodal');
 		  },
 		  hide () {
-		    this.$modal.hide('mymodal');
 		  }
 		}
 	}

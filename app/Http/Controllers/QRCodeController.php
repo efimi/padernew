@@ -10,7 +10,7 @@ class QRCodeController extends Controller
 {
     public function show()
     {
-    	$user = User::find(1);
+    	$user = Auth::user();
     	return view('QRCodeShow', compact('user'));
     }
     public function test(User $user)

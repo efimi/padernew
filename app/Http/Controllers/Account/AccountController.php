@@ -22,4 +22,8 @@ class AccountController extends Controller
     	$request->user()->update($request->only(['name', 'avatar_id']));
     	return back();
     }
+    public function change()
+    {
+    	# code...
+    }
 }

@@ -37,6 +37,7 @@ Route::post('/chat/messages', 'Chat\ChatMessageController@store');
 
 Route::get('/dashboard','HomeController@index');
 Route::post('/account/avatar', 'Account\AvatarController@store')->name('account.avatar.store');
+Route::post('/account/email', 'Account\AccountController@storeMail')->name('account.storeMail');
 Route::patch('/account', 'Account\AccountController@update')->name('account.update');
 
 Route::get('/api/getlocation/{amount}', function($amount) {

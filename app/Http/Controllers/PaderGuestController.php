@@ -36,7 +36,6 @@ class PaderGuestController extends Controller
     }
     public function registerUser(Request $request)
     {	
-    	dd(session());
 
     }
 }

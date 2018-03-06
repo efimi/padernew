@@ -2,8 +2,8 @@
 	<div class="users">
 		<div class="users__header">{{ users.length }} {{ pluralize('user', users.length)}} online</div>
 		<div class="users__user" v-for="user in users">
-			<a href="">{{ user.name }}</a>
-			<!-- <img src="#" alt="#" class="users__user-avatar"> -->
+			<!-- <a href="">{{ user.name }}</a> -->
+			<img src="{{ user.avatar }}" alt="#" class="users__user-avatar">
 		</div>
 	</div>
 </template>

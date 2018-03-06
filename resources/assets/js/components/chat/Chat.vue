@@ -49,6 +49,7 @@
 					pinwallId: Laravel.user.matchedLocationId, 
 					user: {
 						name: Laravel.user.name,
+						avatar: Laravel.user.avatarPath
 					}
 				}
 			},

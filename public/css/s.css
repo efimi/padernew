@@ -48,7 +48,7 @@ button{
 	color: #00A6FF;
 	background: #fff;
 }
-form{
+.form{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
